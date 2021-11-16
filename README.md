@@ -1,1 +1,1 @@
-# PaintApp
+# PaintApp - MintBean Hackathon Project
