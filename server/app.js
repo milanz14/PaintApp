@@ -1,22 +1,24 @@
-// “/auth/register” and “/auth/login”\
-// "/user/:id” route to see details for a user and all of their posts
-// “/home” --> GET route to show the most recent 20 posts by all users
-// “/post/:id” route for specific post details
-// “/post/new” to add a new post
+/*
+“/auth/register” and “/auth/login”\
+"/user/:id” route to see details for a user and all of their posts
+“/home” --> GET route to show the most recent 20 posts by all users
+“/posts/:id” route for specific post details
+“/posts/new” to add a new post
+*/
 
 const express = require('express');
 const cors = require('cors');
 
 const { NotFoundError } = require('./expressError');
 const userRoutes = require('./routes/user');
-// const postRoutes = require('./routes/post');
+const postRoutes = require('./routes/posts');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.use('/user', userRoutes);
-// app.use('/post', postRoutes);
+app.use('/posts', postRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World');
