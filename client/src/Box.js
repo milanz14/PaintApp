@@ -1,14 +1,14 @@
 import React from "react";
 
-function Box(props) {
+function Box({ height, width, color }) {
     return (
         <div>
             <div
                 style={{
-                    height: "500px",
-                    width: "500px",
-                    border: "5px solid black",
-                    backgroundColor: props.color.color || "#000",
+                    height: `${height}px`,
+                    width: `${width}px`,
+                    border: "2px solid black",
+                    backgroundColor: color,
                 }}
             ></div>
         </div>
