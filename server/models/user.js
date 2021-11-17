@@ -22,7 +22,7 @@ class User {
         `SELECT post_data FROM posts WHERE user_id = $1`,
         [id]
       );
-      return { user: user.rows, posts: posts.rows };
+      return { user: user.rows[0], posts: posts.rows };
     } catch (err) {
       return err;
     }
