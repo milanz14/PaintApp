@@ -9,9 +9,10 @@
 const express = require('express');
 const cors = require('cors');
 
-const { NotFoundError } = require('./expressError');
+const { NotFoundError, BadRequestError } = require('./expressError');
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/posts');
+const Home = require('./models/home');
 
 const app = express();
 app.use(cors());
@@ -20,8 +21,15 @@ app.use(express.json());
 app.use('/user', userRoutes);
 app.use('/posts', postRoutes);
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get('/:num', async (req, res) => {
+  const num = parseInt(req.params.num);
+  console.log(typeof num);
+  if (typeof num !== 'number') {
+    throw new BadRequestError('invalid number input');
+  }
+
+  const mostRecentPosts = await Home.getMostRecent(num);
+  return res.status(201).json(mostRecentPosts);
 });
 
 app.use(function (req, res, next) {

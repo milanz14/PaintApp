@@ -20,7 +20,7 @@ class Posts {
   static async getPost(id) {
     console.log('Posts.getPost running');
     try {
-      const post = await db.query(`SELECT * FROM posts WHERE id= $1`, [id]);
+      const post = await db.query(`SELECT * FROM posts WHERE id= $1;`, [id]);
       return { post: post.rows[0] };
     } catch (err) {
       throw new BadRequestError(err);
