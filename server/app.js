@@ -1,25 +1,22 @@
-// “/auth/register” and “/auth/login”
-
-// “/user/profile” page
+// “/auth/register” and “/auth/login”\
 // "/user/:id” route to see details for a user and all of their posts
-
-// I'd say we put this inside the user's profile
 // “/home” --> GET route to show the most recent 20 posts by all users
-
 // “/post/:id” route for specific post details
-
 // “/post/new” to add a new post
 
 const express = require('express');
 const cors = require('cors');
 
 const { NotFoundError } = require('./expressError');
-const user = require('./routes/user');
-const post = require('./routes/post');
+const userRoutes = require('./routes/user');
+// const postRoutes = require('./routes/post');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.use('/user', userRoutes);
+// app.use('/post', postRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World');
