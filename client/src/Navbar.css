@@ -1,0 +1,12 @@
+.Nav {
+    background: #22223b;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0;
+}
+
+.NavLink {
+    color: #c9ada7;
+}
