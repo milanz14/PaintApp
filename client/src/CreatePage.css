@@ -1,7 +1,9 @@
+body {
+    background-color: #f2e9e4;
+}
+
 .front {
     position: absolute;
-    top: 10%;
-    left: 25%;
 }
 
 .front input.box-select {
