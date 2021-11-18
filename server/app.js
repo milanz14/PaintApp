@@ -12,14 +12,18 @@ const cors = require('cors');
 const { NotFoundError, BadRequestError } = require('./expressError');
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/posts');
+const authRoutes = require('./routes/auth');
 const Home = require('./models/home');
+const { authenticateJWT } = require('./middleware/auth');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(authenticateJWT);
 
 app.use('/user', userRoutes);
 app.use('/posts', postRoutes);
+app.use('/auth', authRoutes);
 
 app.get('/:num', async (req, res) => {
   const num = parseInt(req.params.num);

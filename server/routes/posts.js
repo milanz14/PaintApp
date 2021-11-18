@@ -18,7 +18,7 @@ router.post('/new', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params;
   const post = await Posts.getPost(id);
-  return res.json(post);
+  return res.status(201).json(post);
 });
 
 module.exports = router;
