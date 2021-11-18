@@ -4,10 +4,7 @@ const express = require('express');
 const { BadRequestError, ExpressError } = require('../expressError');
 const bcrypt = require('bcrypt');
 const { BCRYPT_WORK_FACTOR, SECRET_KEY } = require('../config');
-const db = require('../db');
 const jwt = require('jsonwebtoken');
-const { ensureLoggedIn } = require('../middleware/auth');
-const { route } = require('./user');
 const Auth = require('../models/auth');
 
 const router = express.Router({ mergeParams: true });
