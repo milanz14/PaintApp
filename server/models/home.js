@@ -10,7 +10,6 @@ class Home {
       const mostRecent = await db.query(
         `SELECT * FROM posts ORDER BY id DESC Limit ${numOfPosts};`
       );
-      console.log(mostRecent.rows);
       return { posts: mostRecent.rows };
     } catch (err) {
       throw new BadRequestError(`No posts found`);

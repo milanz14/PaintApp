@@ -4,25 +4,41 @@ const db = require('../db');
 const { BadRequestError } = require('../expressError');
 
 class User {
-  static async getUserAndPosts(id) {
+  // requires logged in and authorized user
+  static async getUserAndPosts(username) {
     console.log('getUserAndPosts running');
     try {
       const user = await db.query(
         `
-      SELECT * FROM users
-      WHERE id = $1
+      SELECT id, username, created_at FROM users
+      WHERE username = $1;
     `,
-        [id]
+        [username]
       );
+      console.log(user);
       if (!user) {
-        throw new BadRequestError(`User ${id} not found`);
+        throw new BadRequestError(`User ${username} not found`);
       }
 
       const posts = await db.query(
-        `SELECT post_data FROM posts WHERE user_id = $1`,
-        [id]
+        `SELECT post_data FROM posts WHERE username = $1;`,
+        [username]
       );
       return { user: user.rows[0], posts: posts.rows };
+    } catch (err) {
+      return err;
+    }
+  }
+
+  // Anyone can use
+  static async getUserPosts(username) {
+    console.log('running getUserPosts');
+    try {
+      const posts = await db.query(
+        `SELECT post_data FROM posts WHERE username = $1;`,
+        [username]
+      );
+      return { posts: posts.rows };
     } catch (err) {
       return err;
     }
