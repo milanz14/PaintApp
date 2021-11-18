@@ -12,3 +12,8 @@
     border: 2px dotted black;
     cursor: pointer;
 }
+
+.picker {
+    width: 200px;
+    margin-left: 20px;
+}

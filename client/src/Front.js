@@ -1,35 +1,40 @@
 import React, { useState, useRef, useEffect } from "react";
-import NewBoxForm from "./NewBoxForm";
-// import Box from "./Box";
+import Box from "./Box";
 import "./Front.css";
 
 const Front = () => {
     const INITIAL_STATE = [
         {
-            id: Math.random.toString(),
-            width: "250px",
-            height: "250px",
+            width: "650px",
+            height: "650px",
             radius: 0,
         },
     ];
+
+    const LINE_STATE = {
+        lineStyle: "",
+        lineWidth: null,
+    };
+
     const contextRef = useRef(null);
     const canvasRef = useRef(null);
 
     const [isDrawing, setIsDrawing] = useState(false);
     const [color, setColor] = useState("");
     const [boxes, setBoxes] = useState(INITIAL_STATE);
+    const [lineState, setLineState] = useState(LINE_STATE);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
 
         // context.scale(2, 2);
-        context.lineCap = "round";
+        context.lineCap = lineState.lineStyle;
         context.strokeStyle = color;
-        context.lineWidth = 3;
+        context.lineWidth = lineState.lineWidth;
 
         contextRef.current = context;
-    }, [color]);
+    }, [color, lineState.lineStyle, lineState.lineWidth]);
 
     const startDraw = ({ nativeEvent }) => {
         const { offsetX, offsetY } = nativeEvent;
@@ -50,38 +55,59 @@ const Front = () => {
         contextRef.current.stroke();
     };
 
-    const handleSelect = (e) => {
-        console.log(e.target.value);
-    };
-
     const handleColorPickChange = (e) => {
         console.log(e.target.value);
         setColor(e.target.value);
     };
 
-    const handleColorClick = () => {
-        //filter boxes by ID and set backgroundColor hook property
-        // pass this down as a prop;
+    const handleLineChange = (e) => {
+        setLineState({
+            [e.target.name]: e.target.value,
+        });
+        console.log(lineState);
     };
 
     return (
         <div className="front">
-            <button>Save My Masterpiece</button>
-            <NewBoxForm />
             <label htmlFor="picker">SELECT COLOR</label>
             <input
                 id="picker"
                 type="color"
+                name="picker"
+                className="picker"
                 onChange={handleColorPickChange}
             ></input>
-            {/* {boxes.map((box) => {
-                <Box width={box.width} height={box.height} />;
-            })} */}
+            <label htmlFor="lineStyle">Line Style</label>
+            <select
+                name="lineStyle"
+                id="lineStyle"
+                value={lineState.lineStyle}
+                className="lineStyle"
+                onChange={handleLineChange}
+            >
+                <option value="round">Round</option>
+                <option value="square">Square</option>
+            </select>
+            <label htmlFor="lineWidth">Line Width</label>
+            <select
+                name="lineWidth"
+                id="lineWidth"
+                value={lineState.lineWidth}
+                className="lineWidth"
+                onChange={handleLineChange}
+            >
+                <option value={1}>1</option>
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={15}>15</option>
+                <option value={20}>20</option>
+            </select>
+
             <div>
-                <canvas
+                <Box
                     style={{ borderRadius: `${INITIAL_STATE.radius}%` }}
                     className="box"
-                    ref={canvasRef}
+                    canvasRef={canvasRef}
                     onMouseDown={startDraw}
                     onMouseUp={endDraw}
                     onMouseMove={draw}
