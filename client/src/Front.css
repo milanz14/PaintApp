@@ -7,3 +7,8 @@
 .front input.box-select {
     width: 200px;
 }
+
+.box {
+    border: 2px dotted black;
+    cursor: pointer;
+}

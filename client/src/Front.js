@@ -1,26 +1,57 @@
-import React, { useState } from "react";
-import Box from "./Box";
+import React, { useState, useRef, useEffect } from "react";
+import NewBoxForm from "./NewBoxForm";
+// import Box from "./Box";
 import "./Front.css";
 
-function Front() {
-    const INITIAL_HEIGHT = 500;
-    const INITIAL_WIDTH = 500;
-    const INITIAL_STATE = [{ id: 1, color: "" }];
+const Front = () => {
+    const INITIAL_STATE = [
+        {
+            id: Math.random.toString(),
+            width: "250px",
+            height: "250px",
+            radius: 0,
+        },
+    ];
+    const contextRef = useRef(null);
+    const canvasRef = useRef(null);
 
-    const [allBoxes, setAllBoxes] = useState(INITIAL_STATE);
-    const [numBoxes, setNumBoxes] = useState(INITIAL_STATE.length);
-    const [boxHeight, setBoxHeight] = useState(INITIAL_HEIGHT);
-    const [boxWidth, setBoxWidth] = useState(INITIAL_WIDTH);
-    const [color, setColor] = useState("#fffffff");
-    const [boxColor, setBoxColor] = useState("");
+    const [isDrawing, setIsDrawing] = useState(false);
+    const [color, setColor] = useState("");
+    const [boxes, setBoxes] = useState(INITIAL_STATE);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+
+        // context.scale(2, 2);
+        context.lineCap = "round";
+        context.strokeStyle = color;
+        context.lineWidth = 3;
+
+        contextRef.current = context;
+    }, [color]);
+
+    const startDraw = ({ nativeEvent }) => {
+        const { offsetX, offsetY } = nativeEvent;
+        contextRef.current.beginPath();
+        contextRef.current.moveTo(offsetX, offsetY);
+        setIsDrawing(true);
+    };
+
+    const endDraw = () => {
+        contextRef.current.closePath();
+        setIsDrawing(false);
+    };
+
+    const draw = ({ nativeEvent }) => {
+        if (!isDrawing) return;
+        const { offsetX, offsetY } = nativeEvent;
+        contextRef.current.lineTo(offsetX, offsetY);
+        contextRef.current.stroke();
+    };
 
     const handleSelect = (e) => {
         console.log(e.target.value);
-        // setBoxHeight(INITIAL_HEIGHT / boxes);
-        // setBoxWidth(INITIAL_WIDTH / boxes);
-        // console.log(
-        //     `NUM BOXES: ${boxes}, WIDTH: ${boxWidth}, HEIGHT: ${boxHeight}`
-        // );
     };
 
     const handleColorPickChange = (e) => {
@@ -29,29 +60,37 @@ function Front() {
     };
 
     const handleColorClick = () => {
-        // filter boxes by ID and color the one where box.id === id;
-        setBoxColor(color);
+        //filter boxes by ID and set backgroundColor hook property
+        // pass this down as a prop;
     };
 
     return (
         <div className="front">
+            <button>Save My Masterpiece</button>
+            <NewBoxForm />
             <label htmlFor="picker">SELECT COLOR</label>
             <input
                 id="picker"
                 type="color"
                 onChange={handleColorPickChange}
             ></input>
-            <Box height={boxHeight} width={boxWidth} color={boxColor} />
-            <input
-                type="number"
-                min="1"
-                max="50"
-                placeholder="SELECT # BOXES"
-                onChange={handleSelect}
-                className="box-select"
-            ></input>
+            {/* {boxes.map((box) => {
+                <Box width={box.width} height={box.height} />;
+            })} */}
+            <div>
+                <canvas
+                    style={{ borderRadius: `${INITIAL_STATE.radius}%` }}
+                    className="box"
+                    ref={canvasRef}
+                    onMouseDown={startDraw}
+                    onMouseUp={endDraw}
+                    onMouseMove={draw}
+                    width={boxes[0].width}
+                    height={boxes[0].height}
+                />
+            </div>
         </div>
     );
-}
+};
 
 export default Front;
