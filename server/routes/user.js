@@ -13,11 +13,6 @@ router.get('/account/:username', loggedInAndUser, async (req, res, next) => {
 
     console.log(`Username = ${username}`);
     const userInfo = await User.getUserAndPosts(username);
-
-    let postsArr = [];
-    for (let post of userInfo.posts) postsArr.push(post.post_data);
-
-    userInfo['posts'] = postsArr;
     return res.status(201).json(userInfo);
   } catch (err) {
     next(err);
@@ -28,9 +23,8 @@ router.get('/:username', async (req, res, next) => {
   try {
     const { username } = req.params;
     const userPosts = await User.getUserPosts(username);
-    const postsArr = [];
-    for (let post of userPosts.posts) postsArr.push(post.post_data);
-    return res.status(201).json({ userPosts: postsArr });
+
+    return res.status(201).json({ userPosts });
   } catch (err) {
     next(err);
   }

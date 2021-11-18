@@ -15,13 +15,13 @@ class User {
     `,
         [username]
       );
-      console.log(user);
+
       if (!user) {
         throw new BadRequestError(`User ${username} not found`);
       }
 
       const posts = await db.query(
-        `SELECT post_data FROM posts WHERE username = $1;`,
+        `SELECT name, post_data FROM posts WHERE username = $1;`,
         [username]
       );
       return { user: user.rows[0], posts: posts.rows };
@@ -35,7 +35,7 @@ class User {
     console.log('running getUserPosts');
     try {
       const posts = await db.query(
-        `SELECT post_data FROM posts WHERE username = $1;`,
+        `SELECT name, post_data FROM posts WHERE username = $1;`,
         [username]
       );
       return { posts: posts.rows };
