@@ -1,15 +1,27 @@
-import React, { useRef } from "react";
+import React from "react";
 import "./Box.css";
 
 const Box = (props) => {
+    const {
+        style,
+        canvasRef,
+        onMouseDown,
+        onMouseUp,
+        onMouseMove,
+        width,
+        height,
+    } = props;
+
     return (
         <canvas
-            style={{ borderRadius: `${props.radius}%` }}
+            style={style}
             className="box"
-            ref={props.canvasRef}
-            onMouseDown={props.startDraw}
-            onMouseUp={props.endDraw}
-            onMouseMove={props.draw}
+            ref={canvasRef}
+            onMouseDown={onMouseDown}
+            onMouseUp={onMouseUp}
+            onMouseMove={onMouseMove}
+            width={width}
+            height={height}
         />
     );
 };
