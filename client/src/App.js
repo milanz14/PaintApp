@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Gallery from "./components/Gallery";
 import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
     return (
@@ -16,6 +18,8 @@ function App() {
                     <Route exact path="/gallery" element={<Gallery />} />
                     <Route exact path="/create" element={<CreatePage />} />
                     <Route exact path="/profile" element={<Profile />} />
+                    <Route exact path="/register" element={<Register />} />
+                    <Route exact path="/login" element={<Login />} />
                 </Routes>
             </div>
         </div>
