@@ -1,7 +1,7 @@
 import axios from "axios";
+import links from "./config";
 
-const BASE_API_URL =
-    process.env.REACT_APP_BASE_URL || "https://paintrest-backend.herokuapp.com";
+const BASE_API_URL = links.REACT_APP_BASE_URL || "https://localhost:3001";
 
 class PaintrestAPI {
     static async getImages(numImages, method = "get") {
