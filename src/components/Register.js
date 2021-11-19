@@ -1,4 +1,5 @@
 import React from "react";
+import links from "../config";
 
 const Register = () => {
     const handleSubmit = () => {

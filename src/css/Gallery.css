@@ -1,0 +1,14 @@
+.gallery-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: 2px solid #9a8c98;
+}
+
+/* .flex-direction {
+    flex-direction: row;
+}
+
+.gallery-children {
+    background-color: #fff;
+    width: 75%;
+} */
