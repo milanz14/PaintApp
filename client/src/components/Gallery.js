@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import '../css/Gallery.css';
 import PaintrestAPI from '../apiHandler';
+import GalleryImage from './GalleryImage';
 
 const Gallery = () => {
   const imageCount = 10;
@@ -20,7 +20,9 @@ const Gallery = () => {
       <h1>Gallery of Fine Arts!</h1>
       {images.map((image) => (
         <div>
-          <span key={image.id}>{image.post_data}</span>
+          <span key={image.id}>
+            <GalleryImage image={image.post_data} person={image.username} />
+          </span>
           <p>Created By: {image.username}</p>
         </div>
       ))}
