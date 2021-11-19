@@ -1,10 +1,13 @@
 import "./App.css";
-import Front from "./Front";
+import CreatePage from "./CreatePage";
+import Navbar from "./Navbar";
 
 function App() {
     return (
         <div className="App">
-            <Front />
+            <Navbar />
+
+            <CreatePage />
         </div>
     );
 }
