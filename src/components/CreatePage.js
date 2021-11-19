@@ -5,7 +5,7 @@ import "../css/CreatePage.css";
 const CreatePage = () => {
     const INITIAL_STATE = [
         {
-            width: "500px",
+            width: "800px",
             height: "500px",
             radius: 0,
         },

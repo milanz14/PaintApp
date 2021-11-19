@@ -18,20 +18,25 @@ const Gallery = () => {
     console.log(images);
 
     return (
-        <div>
-            <h1>Gallery of Fine Arts!</h1>
-            {images.map((image) => (
-                <div>
-                    <span key={image.id}>
-                        <GalleryImage
-                            image={image.post_data}
-                            person={image.username}
-                        />
-                    </span>
-                    <p>Created By: {image.username}</p>
-                </div>
-            ))}
-        </div>
+        <>
+            <h3>You may like these.</h3>
+            <div>
+                {images.map((image) => (
+                    <div className="gallery-container flex-direction">
+                        <span key={image.id}>
+                            <GalleryImage
+                                className="gallery-children"
+                                image={image.post_data}
+                                person={image.username}
+                            />
+                            <a href="#">
+                                <p>{image.username}</p>
+                            </a>
+                        </span>
+                    </div>
+                ))}
+            </div>
+        </>
     );
 };
 
