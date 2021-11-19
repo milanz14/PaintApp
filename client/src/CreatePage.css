@@ -2,12 +2,8 @@ body {
     background-color: #f2e9e4;
 }
 
-.front {
-    position: absolute;
-}
-
 .front input.box-select {
-    width: 200px;
+    width: 100px;
 }
 
 .box {
@@ -18,4 +14,13 @@ body {
 .picker {
     width: 200px;
     margin-left: 20px;
+}
+
+.btn {
+    background-color: #22223b;
+    color: #f2e9e4;
+}
+
+.btn:hover {
+    color: #c9ada7;
 }

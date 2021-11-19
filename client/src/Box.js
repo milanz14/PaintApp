@@ -6,7 +6,7 @@ const Box = (props) => {
         props;
 
     return (
-        <div className="box">
+        <div className="box" style={{ width: width, height: height }}>
             <canvas
                 ref={canvasRef}
                 onMouseDown={onMouseDown}
