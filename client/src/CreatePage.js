@@ -5,8 +5,8 @@ import "./CreatePage.css";
 const CreatePage = () => {
     const INITIAL_STATE = [
         {
-            width: "650px",
-            height: "650px",
+            width: "500px",
+            height: "500px",
             radius: 0,
         },
     ];
@@ -23,18 +23,16 @@ const CreatePage = () => {
     const [color, setColor] = useState("");
     const [boxes, setBoxes] = useState(INITIAL_STATE);
     const [lineState, setLineState] = useState(LINE_STATE);
+    const [canvasData, setCanvasData] = useState(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
-
-        // context.scale(2, 2);
         context.lineCap = lineState.lineStyle;
         context.strokeStyle = color;
         context.lineWidth = lineState.lineWidth;
-
         contextRef.current = context;
-    }, [color, lineState.lineStyle, lineState.lineWidth]);
+    }, [color, lineState]);
 
     const startDraw = ({ nativeEvent }) => {
         const { offsetX, offsetY } = nativeEvent;
@@ -67,45 +65,64 @@ const CreatePage = () => {
         // console.log(lineState);
     };
 
+    const handleSaveData = () => {
+        const canvas = canvasRef.current;
+        const d = canvas.toDataURL("image/png");
+        console.log("saved canvas");
+    };
+
     return (
         <>
-            <div className="front">
-                <label htmlFor="picker">SELECT COLOR</label>
-                <input
-                    id="picker"
-                    type="color"
-                    name="picker"
-                    className="picker"
-                    onChange={handleColorPickChange}
-                ></input>
-                <label htmlFor="lineStyle">Line Style</label>
-                <select
-                    name="lineStyle"
-                    id="lineStyle"
-                    value={lineState.lineStyle}
-                    className="lineStyle"
-                    onChange={handleLineChange}
-                >
-                    <option value="">SELECT</option>
-                    <option value="round">Round</option>
-                    <option value="square">Square</option>
-                </select>
-                <label htmlFor="lineWidth">Line Width</label>
-                <select
-                    name="lineWidth"
-                    id="lineWidth"
-                    value={lineState.lineWidth}
-                    className="lineWidth"
-                    onChange={handleLineChange}
-                >
-                    <option value={1}>1</option>
-                    <option value={5}>5</option>
-                    <option value={10}>10</option>
-                    <option value={15}>15</option>
-                    <option value={20}>20</option>
-                </select>
-
-                <div>
+            <div className="container-fluid">
+                <div className="container-fluid">
+                    <div className="d-flex justify-content-center my-3 input-group input-group-sm px-4">
+                        <label htmlFor="color" className="form-label px-4">
+                            Line Color
+                        </label>
+                        <input
+                            id="color"
+                            type="color"
+                            name="color"
+                            className="form-control form-control-color px-4"
+                            onChange={handleColorPickChange}
+                        ></input>
+                    </div>
+                    <div className="d-flex justify-content-center my-3 input-group input-group-sm px-4">
+                        <label htmlFor="lineStyle" className="form-label px-4">
+                            Line Style
+                        </label>
+                        <select
+                            name="lineStyle"
+                            id="lineStyle"
+                            value={lineState.lineStyle}
+                            className="form-select"
+                            onChange={handleLineChange}
+                        >
+                            <option value="">SELECT</option>
+                            <option value="round">Round</option>
+                            <option value="square">Square</option>
+                        </select>
+                    </div>
+                    <div className="d-flex justify-content-center my-3 px-4">
+                        <label htmlFor="lineWidth" className="form-label px-4">
+                            Line Width
+                        </label>
+                        <select
+                            name="lineWidth"
+                            id="lineWidth"
+                            value={lineState.lineWidth}
+                            className="form-select"
+                            onChange={handleLineChange}
+                        >
+                            <option value={1}>1</option>
+                            <option value={5}>5</option>
+                            <option value={10}>10</option>
+                            <option value={15}>15</option>
+                            <option value={20}>20</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="front">
                     <Box
                         className="box"
                         canvasRef={canvasRef}
@@ -116,6 +133,11 @@ const CreatePage = () => {
                         height={boxes[0].height}
                     />
                 </div>
+            </div>
+            <div className="d-flex justify-content-center my-3">
+                <button className="btn" onClick={handleSaveData}>
+                    <i className="far fa-save"> Save</i>
+                </button>
             </div>
         </>
     );
