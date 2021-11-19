@@ -11,13 +11,28 @@ const DevBio = (props) => {
                 <div class="card-body">
                     <h5 class="card-title">{name.toUpperCase()}</h5>
                     <p class="card-text">{bio}</p>
-                    <a href={linkedIn} target="_blank" class="btn me-1">
+                    <a
+                        href={linkedIn}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="btn me-1"
+                    >
                         LinkedIn
                     </a>
-                    <a href={github} target="_blank" class="btn me-1">
+                    <a
+                        href={github}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="btn me-1"
+                    >
                         GitHub
                     </a>
-                    <a href={portfolio} target="_blank" class="btn">
+                    <a
+                        href={portfolio}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="btn"
+                    >
                         Portfolio
                     </a>
                 </div>
