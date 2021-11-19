@@ -71,10 +71,16 @@ const CreatePage = () => {
         console.log("saved canvas");
     };
 
+    const clearCanvas = () => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    };
+
     return (
         <>
-            <div className="container-fluid">
-                <div className="container-fluid">
+            <div className="container">
+                <div className="container-fluid shadow-sm p-3 mb-5 bg-body rounded box-color">
                     <div className="d-flex justify-content-center my-3 input-group input-group-sm px-4">
                         <label htmlFor="color" className="form-label px-4">
                             Line Color
@@ -103,7 +109,7 @@ const CreatePage = () => {
                             <option value="square">Square</option>
                         </select>
                     </div>
-                    <div className="d-flex justify-content-center my-3 px-4">
+                    <div className="d-flex justify-content-center input-group input-group-sm my-3 px-4">
                         <label htmlFor="lineWidth" className="form-label px-4">
                             Line Width
                         </label>
@@ -118,7 +124,7 @@ const CreatePage = () => {
                             <option value={5}>5</option>
                             <option value={10}>10</option>
                             <option value={15}>15</option>
-                            <option value={20}>20</option>
+                            <option value={30}>30</option>
                         </select>
                     </div>
                 </div>
@@ -135,8 +141,11 @@ const CreatePage = () => {
                 </div>
             </div>
             <div className="d-flex justify-content-center my-3">
-                <button className="btn" onClick={handleSaveData}>
+                <button className="btn me-1" onClick={handleSaveData}>
                     <i className="far fa-save"> Save</i>
+                </button>
+                <button className="btn" onClick={clearCanvas}>
+                    <i className="far fa-trash-alt"> clear</i>
                 </button>
             </div>
         </>
