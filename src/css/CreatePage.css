@@ -28,3 +28,8 @@ body {
 .box-color {
     background-color: #22223b;
 }
+
+.bg-body-edited {
+    background-color: #22223b;
+    color: #f2e9e4;
+}
