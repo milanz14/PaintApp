@@ -8,7 +8,7 @@ const LandingPage = () => {
     const devInfo = [
         {
             name: "Milan Zagorac",
-            bio: "Milan is a full-stack software developer based in Toronto. With a decade of experience in Sales, Business Development and a formal education in Mechanical Engineering, Milan was always fascinated with solving problems. In 2019, Milan started down a path of self-study that culminated in completing an intensive, 9-month Software Development bootcamp through Springboard in 2021. Milan is an advocate of life-long learning and is always looking forwards to keeping up with the latest in technology.",
+            bio: "Milan is a full-stack software developer based in Toronto. With a decade of experience in Sales, Business Development and a formal education in Mechanical Engineering, Milan was always fascinated with solving problems. In 2019, Milan started down a path of self-study that culminated in completing an intensive, 9-month Software Development bootcamp through Springboard in 2021. Milan is an advocate of life-long learning and is always looking forwards to keeping up with the latest in technology. Milan is proficient with JavaScript, TypeScript, React, Express, Node, Python, Flask, MongoDB and Postgres.",
             linkedIn: "https://www.linkedin.com/in/milanzagorac/",
             github: "https://www.github.com/milanz14",
             portfolio: "https://www.milanz.dev",
@@ -43,7 +43,7 @@ const LandingPage = () => {
                         <i className="fas fa-sign-in-alt"> Login</i>
                     </a>
                 </div>
-                <div className="container py-4">
+                <div className="container py-4 size-window">
                     <br />
                     <section>
                         <div className="row">
@@ -76,10 +76,10 @@ const LandingPage = () => {
                     </div>
                 </div>
             ))} */}
-            <div className="container">
+            <div className="container card-radius">
                 <div className="row g-3">
-                    <div className="col-lg-6 col-md-6">
-                        <div className="card">
+                    <div className="col-lg-6 col-md-12 d-flex align-items-stretch">
+                        <div className="card shadow p-3 mb-5 bg-body rounded card-radius">
                             <img
                                 src={devInfo[0].img}
                                 className="card-img-top-card"
@@ -118,8 +118,8 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 col-md-6">
-                        <div className="card">
+                    <div className="col-lg-6 col-md-12 d-flex align-items-stretch">
+                        <div className="card shadow p-3 mb-5 bg-body rounded card-radius">
                             <img
                                 src={devInfo[1].img}
                                 className="card-img-top-card"
