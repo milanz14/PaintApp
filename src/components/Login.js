@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import links from "../config";
 
 const Login = () => {
+    const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
     const [loginData, setLoginData] = useState({ username: "", password: "" });
 
     useEffect(() => {

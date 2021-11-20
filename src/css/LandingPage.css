@@ -7,3 +7,10 @@
     display: flex;
     justify-content: center;
 }
+
+.app-picture {
+    width: 492px;
+    height: 300px;
+    border: 2px solid #22223b;
+    box-shadow: 2px 2px 10px black;
+}

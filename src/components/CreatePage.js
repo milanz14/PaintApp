@@ -68,7 +68,8 @@ const CreatePage = () => {
     const handleSaveData = () => {
         const canvas = canvasRef.current;
         const d = canvas.toDataURL("image/png");
-        console.log("saved canvas");
+        // console.log("saved canvas");
+        // sessionStorage.setItem("save data", d);
     };
 
     const clearCanvas = () => {
