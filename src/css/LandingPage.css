@@ -5,7 +5,6 @@
 
 .landing-cards {
     display: flex;
-    justify-content: center;
 }
 
 .app-picture {
@@ -15,10 +14,18 @@
     box-shadow: 2px 2px 10px black;
 }
 
-.landingPage .developers {
+.devbio {
+    display: flex;
+}
+
+/* .card-align {
+    text-align: justify;
+} */
+
+/* .landingPage .developers {
     margin: 3rem 0;
 }
 
 .landingPage .developers h4 {
     margin-bottom: 2rem;
-}
+} */
