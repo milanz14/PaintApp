@@ -2,13 +2,21 @@
     display: inline;
 }
 
+.card-group {
+    width: 35%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.card-group img {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    border-radius: 10px;
+}
+
 .shrunk {
     width: 150px;
     height: 100px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.control-size {
-    width: 50%;
 }
