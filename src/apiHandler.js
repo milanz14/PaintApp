@@ -1,8 +1,7 @@
 import axios from 'axios';
 import links from './config';
 
-const BASE_API_URL =
-    process.env.REACT_APP_BASE_URL || 'https://paintrest-backend.herokuapp.com';
+const BASE_API_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
 
 class PaintrestAPI {
     static async getImages(numImages, method = 'get') {
@@ -41,11 +40,29 @@ class PaintrestAPI {
         }
     }
 
-    static async myProfile(token, username, method = 'get') {
-        const url = `${BASE_API_URL}/users/${username}`;
+    static async userProfile(username, method = 'get') {
+        const url = `${BASE_API_URL}/user/${username}`;
         try {
-            const data = { _token: token };
-            const userInfo = await axios({ url, data, method });
+            const userInfo = await axios({ url, method });
+            return userInfo.data;
+        } catch (err) {
+            console.error('API Error:', err.response);
+            let message = err.response.data.error.message;
+            throw Array.isArray(message) ? message : [message];
+        }
+    }
+
+    static async myProfile(token, username, method = 'get') {
+        const url = `${BASE_API_URL}/user/account/${username}`;
+        console.log(`asdfasdf${url}afsadf`);
+        try {
+            const data = { _token: token, username };
+            console.log(data);
+            const userInfo = await axios({
+                url,
+                data,
+                method,
+            });
             return userInfo.data;
         } catch (err) {
             console.error('API Error:', err.response);
