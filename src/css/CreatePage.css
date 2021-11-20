@@ -24,3 +24,7 @@ body {
 .btn:hover {
     color: #c9ada7;
 }
+
+.box-color {
+    background-color: #22223b;
+}
