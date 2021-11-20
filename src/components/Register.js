@@ -27,6 +27,7 @@ const Register = () => {
                 setToken(res.data.token);
                 console.log(res.data.token);
                 sessionStorage.setItem("_token", res.data.token);
+                sessionStorage.setItem("username", res.data.username);
                 clearInputs();
                 navigate("/create");
             })
