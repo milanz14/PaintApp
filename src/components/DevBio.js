@@ -17,7 +17,7 @@ const DevBio = (props) => {
                         rel="noreferrer"
                         className="btn me-1"
                     >
-                        LinkedIn
+                        <i className="fab fa-linkedin"></i>
                     </a>
                     <a
                         href={github}
@@ -25,7 +25,7 @@ const DevBio = (props) => {
                         rel="noreferrer"
                         className="btn me-1"
                     >
-                        GitHub
+                        <i className="fab fa-github"></i>
                     </a>
                     <a
                         href={portfolio}
@@ -33,7 +33,7 @@ const DevBio = (props) => {
                         rel="noreferrer"
                         className="btn"
                     >
-                        Portfolio
+                        <i className="fas fa-blog"></i>
                     </a>
                 </div>
             </div>
