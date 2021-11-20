@@ -72,7 +72,6 @@ const CreatePage = () => {
     const handleSaveData = async () => {
         const canvas = canvasRef.current;
         const username = sessionStorage.getItem('username') || 'Anonymous';
-        console.log(`Username = ${username}`);
         const d = canvas.toDataURL('image/png');
         console.log('saved canvas');
         sessionStorage.setItem('image_data', d);
