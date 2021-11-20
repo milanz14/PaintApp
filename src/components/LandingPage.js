@@ -28,39 +28,46 @@ const LandingPage = () => {
         <>
             <div className="container">
                 <div className="jumbotron">
-                    <p className="lead py-4">
-                        Express your inspriation. Save to your profile. Share
-                        with others.
+                    <p className="lead py-4">Express your inspiration.</p>
+                </div>
+                <div className="my-4">
+                    <h3>ABOUT THE APP</h3>
+                    <p>
+                        This is paintrest, where anyone can show off the next
+                        modern masterpiece. Users can create the painting of
+                        their dreams on our canvas and share them for all the
+                        world to see.
                     </p>
-                    <a
-                        className="btn btn-md me-1"
-                        href="/register"
-                        role="button"
-                    >
-                        <i className="fas fa-user-plus"> Register</i>
-                    </a>
-                    <a className="btn btn-md" href="/login" role="button">
-                        <i className="fas fa-sign-in-alt"> Login</i>
-                    </a>
                 </div>
                 <div className="container py-4 size-window">
                     <br />
-                    <section>
-                        <div className="row">
-                            <div className="col-lg-12 col-md-12 col-sm-8">
-                                <img
-                                    className="card-img-top"
-                                    src={appSS}
-                                    alt="screen shot of app main page"
-                                ></img>
-                            </div>
+                    <div className="row mx-auto">
+                        <div className="col-lg-12 col-md-12 col-sm-6 mx-auto">
+                            <img
+                                className="card-img-top app-picture"
+                                src={appSS}
+                                alt="screen shot of app main page"
+                            ></img>
                         </div>
-                    </section>
+                    </div>
                     <br />
                 </div>
             </div>
-
-            <h4>THE DEVELOPERS</h4>
+            <div>
+                <h4>Ready to get started?</h4>
+                <a
+                    className="btn btn-md me-1 my-5"
+                    href="/register"
+                    role="button"
+                >
+                    <i className="fas fa-user-plus"> Register</i>
+                </a>
+                <a className="btn btn-md" href="/login" role="button">
+                    <i className="fas fa-sign-in-alt"> Login</i>
+                </a>
+            </div>
+            <br />
+            <h4 className="myy-5">THE DEVELOPERS</h4>
             {/* {devInfo.map((dev) => (
                 <div className="container">
                     <div className="row">
@@ -86,7 +93,7 @@ const LandingPage = () => {
                             />
                             <div className="card-body">
                                 <h5 className="card-title">
-                                    {devInfo[0].name}
+                                    {devInfo[0].name.toUpperCase()}
                                 </h5>
                                 <p className="card-text text-start">
                                     {devInfo[0].bio}
@@ -126,7 +133,7 @@ const LandingPage = () => {
                             />
                             <div className="card-body">
                                 <h5 className="card-title">
-                                    {devInfo[1].name}
+                                    {devInfo[1].name.toUpperCase()}
                                 </h5>
                                 <p className="card-text text-start">
                                     {devInfo[1].bio}
