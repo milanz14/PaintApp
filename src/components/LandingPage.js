@@ -37,10 +37,10 @@ const LandingPage = () => {
                         href="/register"
                         role="button"
                     >
-                        Register
+                        <i className="fas fa-user-plus"> Register</i>
                     </a>
                     <a className="btn btn-md" href="/login" role="button">
-                        Login
+                        <i className="fas fa-sign-in-alt"> Login</i>
                     </a>
                 </div>
                 <div className="container py-4">
@@ -77,13 +77,12 @@ const LandingPage = () => {
                 </div>
             ))} */}
             <div className="container">
-                <div className="row">
+                <div className="row g-3">
                     <div className="col-lg-6 col-md-6">
                         <div className="card">
                             <img
                                 src={devInfo[0].img}
-                                className="card-img-top"
-                                alt="..."
+                                className="card-img-top-card"
                             />
                             <div className="card-body">
                                 <h5 className="card-title">
@@ -114,7 +113,7 @@ const LandingPage = () => {
                                     rel="noreferrer"
                                     className="btn"
                                 >
-                                    <i className="fas fa-blog"></i>
+                                    <i className="lni lni-website"></i>
                                 </a>
                             </div>
                         </div>
@@ -123,8 +122,7 @@ const LandingPage = () => {
                         <div className="card">
                             <img
                                 src={devInfo[1].img}
-                                className="card-img-top"
-                                alt="..."
+                                className="card-img-top-card"
                             />
                             <div className="card-body">
                                 <h5 className="card-title">
@@ -155,7 +153,7 @@ const LandingPage = () => {
                                     rel="noreferrer"
                                     className="btn"
                                 >
-                                    <i className="fas fa-blog"></i>
+                                    <i className="lni lni-website"></i>
                                 </a>
                             </div>
                         </div>
