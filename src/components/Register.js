@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import links from "../config";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import links from '../config';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
     const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
-    const INITIAL_FORM_STATE = { username: "", password: "" };
+    const INITIAL_FORM_STATE = { username: '', password: '' };
     const navigate = useNavigate();
 
-    const [token, setToken] = useState("");
+    const [token, setToken] = useState('');
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
 
     const handleSubmit = async (e) => {
@@ -19,22 +19,23 @@ const Register = () => {
                 JSON.stringify(registerData),
                 {
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
             .then((res) => {
-                setToken(res.data.token);
-                console.log(res.data.token);
-                sessionStorage.setItem("_token", res.data.token);
-                sessionStorage.setItem("username", res.data.username);
+                const { token, username } = res.data;
+                setToken(token);
+                console.log(res.data);
+                sessionStorage.setItem('_token', token);
+                sessionStorage.setItem('username', username);
                 clearInputs();
-                navigate("/create");
+                navigate('/create');
             })
             .catch((err) => {
                 alert(err);
                 clearInputs();
-                navigate("/register");
+                navigate('/register');
             });
     };
 
@@ -47,7 +48,7 @@ const Register = () => {
     };
 
     const clearInputs = () => {
-        setRegisterData({ username: "", password: "" });
+        setRegisterData({ username: '', password: '' });
     };
 
     return (
