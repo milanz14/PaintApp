@@ -40,6 +40,19 @@ class PaintrestAPI {
             throw Array.isArray(message) ? message : [message];
         }
     }
+
+    static async myProfile(token, username, method = 'get') {
+        const url = `${BASE_API_URL}/users/${username}`;
+        try {
+            const data = { _token: token };
+            const userInfo = await axios({ url, data, method });
+            return userInfo.data;
+        } catch (err) {
+            console.error('API Error:', err.response);
+            let message = err.response.data.error.message;
+            throw Array.isArray(message) ? message : [message];
+        }
+    }
 }
 
 export default PaintrestAPI;
