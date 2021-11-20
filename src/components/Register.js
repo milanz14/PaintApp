@@ -24,11 +24,11 @@ const Register = () => {
                 }
             )
             .then((res) => {
-                const { token, username } = res.data;
+                const { token, user } = res.data;
                 setToken(token);
                 console.log(res.data);
                 sessionStorage.setItem('_token', token);
-                sessionStorage.setItem('username', username);
+                sessionStorage.setItem('username', user);
                 clearInputs();
                 navigate('/create');
             })
