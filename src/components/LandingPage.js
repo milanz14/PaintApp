@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 import "../css/LandingPage.css";
 import DevBio from "./DevBio";
+import milanImg from "../assets/milan_profile.JPG";
+import matthewImg from "../assets/matthew_profile.JPG";
+import appSS from "../assets/app.png";
 
 const LandingPage = () => {
     const [devInfo, setDevInfo] = useState([
         {
             name: "Milan",
-            bio: "Milan is a software developer with a decade of experience in Sales, Business Development and Mechanical Engineering. A formally educated Mechanical Engineer, Milan was alwasys fascinated with solving problems. In 2019, Milan started down a path of self-study that culminated in completing an intensive, 9-month Software Development bootcamp through Springboard. Milan is an advocate of life-long learning and is always looking forwards to keeping up with the latest in technology.",
+            bio: "Milan is a full-stack software developer based in Toronto. With a decade of experience in Sales, Business Development and a formal education in Mechanical Engineering, Milan was always fascinated with solving problems. In 2019, Milan started down a path of self-study that culminated in completing an intensive, 9-month Software Development bootcamp through Springboard in 2021. Milan is an advocate of life-long learning and is always looking forwards to keeping up with the latest in technology.",
             linkedIn: "https://www.linkedin.com/in/milanzagorac/",
             github: "https://www.github.com/milanz14",
             portfolio: "https://www.milanz.dev",
+            img: milanImg,
         },
         {
             name: "Matthew",
-            bio: "Lorem Ipsum",
+            bio: "Matthew is a passionate full-stack developer based in Los Angeles. With a decade of experience in Sales, Business Development and a formal education in Mechanical Engineering, Milan was always fascinated with solving problems. In 2019, Milan started down a path of self-study that culminated in completing an intensive, 9-month Software Development bootcamp through Springboard in 2021. Milan is an advocate of life-long learning and is always looking forwards to keeping up with the latest in technology.",
             linkedIn: "https://www.linkedin.com/in/landen1221/",
             github: "https://github.com/landen1221",
             portfolio: "https://landen1221.github.io/personal-portfolio/",
+            img: matthewImg,
         },
     ]);
 
@@ -42,11 +47,15 @@ const LandingPage = () => {
             </div>
 
             <div className="container py-4">
-                <hr />
+                <br />
                 <section>
-                    <p>Screenshot of the app goes here</p>
-                    <img src="" alt="screen shot of app main page"></img>
+                    <img
+                        className="app-picture"
+                        src={appSS}
+                        alt="screen shot of app main page"
+                    ></img>
                 </section>
+                <br />
 
                 <section>
                     <h4>Meet The Developers</h4>
@@ -58,6 +67,7 @@ const LandingPage = () => {
                                 linkedIn={dev.linkedIn}
                                 github={dev.github}
                                 portfolio={dev.portfolio}
+                                img={dev.img}
                             />
                         ))}
                     </div>

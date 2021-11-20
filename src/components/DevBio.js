@@ -2,20 +2,20 @@ import React from "react";
 import "../css/DevBio.css";
 
 const DevBio = (props) => {
-    const { name, bio, linkedIn, github, portfolio } = props;
+    const { name, bio, linkedIn, github, portfolio, img } = props;
 
     return (
-        <div className="card-group">
-            <div class="card shadow-sm p-3 mb-5 bg-body rounded">
-                <img src="..." class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">{name.toUpperCase()}</h5>
-                    <p class="card-text">{bio}</p>
+        <div className="card-group shadow-sm p-3 mb-5 bg-body rounded">
+            <div className="card control-size">
+                <img src={img} className="card-img-top shrunk" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{name.toUpperCase()}</h5>
+                    <p className="card-text">{bio}</p>
                     <a
                         href={linkedIn}
                         target="_blank"
                         rel="noreferrer"
-                        class="btn me-1"
+                        className="btn me-1"
                     >
                         LinkedIn
                     </a>
@@ -23,7 +23,7 @@ const DevBio = (props) => {
                         href={github}
                         target="_blank"
                         rel="noreferrer"
-                        class="btn me-1"
+                        className="btn me-1"
                     >
                         GitHub
                     </a>
@@ -31,7 +31,7 @@ const DevBio = (props) => {
                         href={portfolio}
                         target="_blank"
                         rel="noreferrer"
-                        class="btn"
+                        className="btn"
                     >
                         Portfolio
                     </a>
