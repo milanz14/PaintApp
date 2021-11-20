@@ -1,14 +1,14 @@
 import axios from 'axios';
 import links from './config';
 
-const BASE_API_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
+const BASE_API_URL =
+    process.env.REACT_APP_BASE_URL || 'https://paintrest-backend.herokuapp.com';
 
 class PaintrestAPI {
     static async getImages(numImages, method = 'get') {
         const url = `${BASE_API_URL}/posts/count/${numImages}`;
         try {
             const images = await axios({ url, method });
-            console.log(images);
             return images.data;
         } catch (err) {
             console.error('API Error:', err.response);
@@ -20,7 +20,7 @@ class PaintrestAPI {
     // FIXME: need dynamic username (user must have account & be logged in)
     static async addNewImage(
         post_data,
-        username = 'user2',
+        username,
         post_name = 'testPost',
         method = 'post'
     ) {
@@ -54,7 +54,7 @@ class PaintrestAPI {
 
     static async myProfile(token, username, method = 'get') {
         const url = `${BASE_API_URL}/user/account/${username}`;
-        console.log(`asdfasdf${url}afsadf`);
+        console.log(`---${url}---`);
         try {
             const data = { _token: token, username };
             console.log(data);

@@ -10,7 +10,6 @@ const Profile = () => {
             const username = sessionStorage.getItem('username');
             const token = sessionStorage.getItem('_token');
             const user = await PaintrestAPI.myProfile(token, username);
-            console.log('&&&&&&&&&&&&&&&&&&&&&&&&&');
             setUser(user);
         }
         getUser();
