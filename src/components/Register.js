@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import links from "../config";
-import { useNavigate, Navigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () => {
     const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
     const INITIAL_FORM_STATE = { username: "", password: "" };
     const navigate = useNavigate();
-    const location = useLocation();
 
     const [token, setToken] = useState("");
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
-
-    const redirectUser = () => {
-        if (!token) {
-            return <Navigate to="/register" />;
-        } else {
-            return <Navigate to="/create" />;
-        }
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,13 +28,12 @@ const Register = () => {
                 console.log(res.data.token);
                 sessionStorage.setItem("_token", res.data.token);
                 clearInputs();
-                redirectUser();
-                // navigate.push("/create");
-                // navigate.go();
+                navigate("/create");
             })
             .catch((err) => {
                 alert(err);
                 clearInputs();
+                navigate("/register");
             });
     };
 
