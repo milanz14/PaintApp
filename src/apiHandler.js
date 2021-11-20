@@ -17,6 +17,29 @@ class PaintrestAPI {
             throw Array.isArray(message) ? message : [message];
         }
     }
+
+    // FIXME: need dynamic username (user must have account & be logged in)
+    static async addNewImage(
+        post_data,
+        username = 'user2',
+        post_name = 'testPost',
+        method = 'post'
+    ) {
+        console.log(`Running Api.addNewImage`);
+        const url = `${BASE_API_URL}/posts/new`;
+        const data = { post_name, post_data, username };
+        console.log(data);
+        try {
+            const newPost = await axios({ url, data, method });
+            console.log('**********');
+            console.log(newPost);
+            return newPost.data;
+        } catch (err) {
+            console.error('API Error:', err.response);
+            let message = err.response.data.error.message;
+            throw Array.isArray(message) ? message : [message];
+        }
+    }
 }
 
 export default PaintrestAPI;

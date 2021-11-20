@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Box from './Box';
 import '../css/CreatePage.css';
+import PaintrestAPI from '../apiHandler';
 
 const CreatePage = () => {
     const INITIAL_STATE = [
@@ -65,12 +66,15 @@ const CreatePage = () => {
         // console.log(lineState);
     };
 
-    const handleSaveData = () => {
+    const handleSaveData = async () => {
         const canvas = canvasRef.current;
         const d = canvas.toDataURL('image/png');
         console.log('saved canvas');
         sessionStorage.setItem('image_data', d);
-        console.log(d);
+        // console.log(d);
+
+        // FIXME: replace test w/ username
+        await PaintrestAPI.addNewImage(d);
     };
 
     const clearCanvas = () => {
