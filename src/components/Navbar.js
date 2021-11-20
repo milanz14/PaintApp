@@ -14,6 +14,7 @@ const Navbar = () => {
 
     const handleLogOutClick = () => {
         sessionStorage.removeItem("_token");
+        sessionStorage.removeItem("username");
         setHasToken(false);
     };
 
