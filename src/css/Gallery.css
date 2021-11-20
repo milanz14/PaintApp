@@ -1,7 +1,36 @@
+/* Current canvas ratio is 8-width to 5-height */
+/* Additional 3rem height is for user name */
 .gallery-container {
     display: inline-flex;
     flex-wrap: wrap;
-    border: 2px solid #9a8c98;
+    border: solid 1px black;
+    background-color: white;
+    width: 24rem;
+    height: 18rem;
+    margin: 25px;
+}
+
+.gallery-container a {
+    border-top: black solid 1px;
+    width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+    /* line-height: 0rem; */
+    text-decoration: none;
+    background-color: #c9ada7;
+    opacity: 0.8;
+}
+
+.gallery-container p {
+    padding-top: 0.4rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.gallery-container .black {
+    color: black;
 }
 
 /* .flex-direction {

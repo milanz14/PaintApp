@@ -1,18 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
-import Box from "./Box";
-import "../css/CreatePage.css";
+import React, { useState, useRef, useEffect } from 'react';
+import Box from './Box';
+import '../css/CreatePage.css';
 
 const CreatePage = () => {
     const INITIAL_STATE = [
         {
-            width: "800px",
-            height: "500px",
+            width: '800px',
+            height: '500px',
             radius: 0,
         },
     ];
 
     const LINE_STATE = {
-        lineStyle: "",
+        lineStyle: '',
         lineWidth: undefined,
     };
 
@@ -20,14 +20,14 @@ const CreatePage = () => {
     const canvasRef = useRef(null);
 
     const [isDrawing, setIsDrawing] = useState(false);
-    const [color, setColor] = useState("");
+    const [color, setColor] = useState('');
     const [boxes, setBoxes] = useState(INITIAL_STATE);
     const [lineState, setLineState] = useState(LINE_STATE);
     const [canvasData, setCanvasData] = useState(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
+        const context = canvas.getContext('2d');
         context.lineCap = lineState.lineStyle;
         context.strokeStyle = color;
         context.lineWidth = lineState.lineWidth;
@@ -67,14 +67,15 @@ const CreatePage = () => {
 
     const handleSaveData = () => {
         const canvas = canvasRef.current;
-        const d = canvas.toDataURL("image/png");
-        // console.log("saved canvas");
-        // sessionStorage.setItem("save data", d);
+        const d = canvas.toDataURL('image/png');
+        console.log('saved canvas');
+        sessionStorage.setItem('image_data', d);
+        console.log(d);
     };
 
     const clearCanvas = () => {
         const canvas = canvasRef.current;
-        const context = canvas.getContext("2d");
+        const context = canvas.getContext('2d');
         context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
