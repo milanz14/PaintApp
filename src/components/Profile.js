@@ -34,13 +34,8 @@ const Profile = () => {
             {images.length === 0 ? (
                 <div className="loader">
                     <Loader
-<<<<<<< HEAD
-                        type="Puff"
-                        color="#00BFFF"
-=======
                         type="ThreeDots"
                         color="#9a8c98"
->>>>>>> 332a8f191892649461c42bfa097495fda2a104ac
                         height={120}
                         width={120}
                         timeout={3000} //3 secs
