@@ -51,18 +51,31 @@ class PaintrestAPI {
         }
     }
 
-    static async myProfile(token, username, method = 'get') {
-        const url = `${BASE_API_URL}/user/account/${username}`;
-        console.log(`---${url}---`);
+    // static async myProfile(token, username, method = 'get') {
+    //     const url = `${BASE_API_URL}/user/account/${username}`;
+    //     console.log(`---${url}---`);
+    //     try {
+    //         const data = { _token: token, username };
+    //         console.log(data);
+    //         const userInfo = await axios({
+    //             url,
+    //             data,
+    //             method,
+    //         });
+    //         return userInfo.data;
+    //     } catch (err) {
+    //         console.error('API Error:', err.response);
+    //         let message = err.response.data.error.message;
+    //         throw Array.isArray(message) ? message : [message];
+    //     }
+    // }
+
+    static async myProfile(username, method = 'get') {
+        const url = `${BASE_API_URL}/user/${username}`;
         try {
-            const data = { _token: token, username };
-            console.log(data);
-            const userInfo = await axios({
-                url,
-                data,
-                method,
-            });
-            return userInfo.data;
+            const userInfo = await axios({ url, method });
+            console.log(userInfo.data);
+            return userInfo.data.userPosts.posts;
         } catch (err) {
             console.error('API Error:', err.response);
             let message = err.response.data.error.message;

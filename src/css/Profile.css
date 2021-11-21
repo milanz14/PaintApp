@@ -1,0 +1,16 @@
+/* Current canvas ratio is 8-width to 5-height */
+/* Additional 3rem height is for user name */
+.profile-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    border: solid 1px black;
+    background-color: white;
+    width: 24rem;
+    height: 15rem;
+    margin: 25px;
+    filter: drop-shadow(8px 8px 5px rgb(106, 106, 106));
+}
+
+.loader {
+    margin-top: 4rem;
+}

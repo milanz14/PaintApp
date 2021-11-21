@@ -1,22 +1,22 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Box from './Box';
-import '../css/CreatePage.css';
-import PaintrestAPI from '../apiHandler';
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Box from "./Box";
+import "../css/CreatePage.css";
+import PaintrestAPI from "../apiHandler";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreatePage = () => {
     const navigate = useNavigate();
 
-    const INITIAL_STATE = [
-        {
-            width: '600px',
-            height: '500px',
-            radius: 0,
-        },
-    ];
+    const boxes = {
+        width: "600px",
+        height: "500px",
+        radius: 0,
+    };
 
     const LINE_STATE = {
-        lineStyle: '',
+        lineStyle: "",
         lineWidth: undefined,
     };
 
@@ -24,14 +24,12 @@ const CreatePage = () => {
     const canvasRef = useRef(null);
 
     const [isDrawing, setIsDrawing] = useState(false);
-    const [color, setColor] = useState('');
-    const [boxes, setBoxes] = useState(INITIAL_STATE);
+    const [color, setColor] = useState("");
     const [lineState, setLineState] = useState(LINE_STATE);
-    const [canvasData, setCanvasData] = useState(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext("2d");
         context.lineCap = lineState.lineStyle;
         context.strokeStyle = color;
         context.lineWidth = lineState.lineWidth;
@@ -70,28 +68,34 @@ const CreatePage = () => {
     };
 
     const handleSaveData = async () => {
-        const canvas = canvasRef.current;
-        const username = sessionStorage.getItem('username') || 'Anonymous';
-        const d = canvas.toDataURL('image/png');
-        console.log('saved canvas');
-        sessionStorage.setItem('image_data', d);
-        // console.log(d);
+        const validUser = sessionStorage.getItem("_token");
+        if (!validUser) {
+            toast.error("You must be logged in to save");
+            navigate("/login");
+        } else {
+            const canvas = canvasRef.current;
+            const username = sessionStorage.getItem("username") || "Anonymous";
+            const d = canvas.toDataURL("image/png");
+            console.log("saved canvas");
+            sessionStorage.setItem("image_data", d);
+            // console.log(d);
 
-        // FIXME: replace test w/ username
-
-        await PaintrestAPI.addNewImage(d, username);
-        navigate('/profile');
+            // FIXME: replace test w/ username
+            await PaintrestAPI.addNewImage(d, username);
+            toast.success("Your masterpeice has been added to your gallery.");
+            navigate("/profile");
+        }
     };
 
     const clearCanvas = () => {
         const canvas = canvasRef.current;
-        const context = canvas.getContext('2d');
+        const context = canvas.getContext("2d");
         context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
     return (
         <>
-            <div className="container" style={{ width: boxes[0].width }}>
+            <div className="container" style={{ width: boxes.width }}>
                 <div className="row shadow-md p-3 mb-5 bg-body-edited rounded box-color">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <div className="d-flex justify-content-center my-3 input-group input-group-sm">
@@ -156,8 +160,8 @@ const CreatePage = () => {
                                 onMouseDown={startDraw}
                                 onMouseUp={endDraw}
                                 onMouseMove={draw}
-                                width={boxes[0].width}
-                                height={boxes[0].height}
+                                width={boxes.width}
+                                height={boxes.height}
                             />
                         </div>
                     </div>
