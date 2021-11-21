@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 import { LoginContext } from "./helper/Context";
+import Footer from "./components/Footer";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -38,6 +39,9 @@ function App() {
                     </Routes>
                 </div>
                 <ToastContainer position="top-center" autoClose={3000} />
+                <div className="container">
+                    <Footer />
+                </div>
             </div>
         </LoginContext.Provider>
     );
