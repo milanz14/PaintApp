@@ -59,12 +59,12 @@ const LandingPage = () => {
                 <h4>Ready to get started?</h4>
                 <a
                     className="btn btn-md me-1 my-5"
-                    href="/register"
+                    href="/Paintrest/register"
                     role="button"
                 >
                     <i className="fas fa-user-plus"> Register</i>
                 </a>
-                <a className="btn btn-md" href="/login" role="button">
+                <a className="btn btn-md" href="/Paintrest/login" role="button">
                     <i className="fas fa-sign-in-alt"> Login</i>
                 </a>
             </div>
