@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import '../css/Gallery.css';
-import PaintrestAPI from '../apiHandler';
-import GalleryImage from './GalleryImage';
+import React, { useState, useEffect } from "react";
+import "../css/Gallery.css";
+import PaintrestAPI from "../apiHandler";
+import GalleryImage from "./GalleryImage";
 
-import Loader from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import { Link } from 'react-router-dom';
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Link } from "react-router-dom";
 
 const Gallery = () => {
     const imageCount = 15;
@@ -26,7 +26,7 @@ const Gallery = () => {
                 <div className="loader">
                     <Loader
                         type="Puff"
-                        color="#00BFFF"
+                        color="#9a8c98"
                         height={100}
                         width={100}
                         timeout={4000} //3 secs
