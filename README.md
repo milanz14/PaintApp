@@ -1,12 +1,37 @@
-# Paintrest Project Front End
+# Paintrest
 
-## This project was built for the Mintbean Hackathon, Nov 16-23, 2021
-## This project was built by Milan Z and Matthew W.
+**Purpose:** This project was created for a MintBeam hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
 
-### The project can be found here [https://milanz14.github.io/Paintrest/](https://milanz14.github.io/Paintrest/)
+**Summary:** Paintrest is a platform that allows users to create and save thier artwork to share with the world! 
 
-### The project starts on the beautiful landing pages which introduces the app
-<img src="_/../_images/landing.png>
+## Reference Links
+
+-   Developers: https://github.com/milanz14 & https://github.com/landen1221
+-   API & Database Schema: https://github.com/milanz14/Paintrest-backend
+-   Live site: https://milanz14.github.io/Paintrest
+
+## Technology Utilized
+
+React (Router, FontAwesome, Bootstrap, Axios), Express, BCRYPT, JSON Web Tokens, Postgres, & Robust error handling
+
+## Run Locally
+
+Assure API is up and running (Found here: https://github.com/milanz14/Paintrest-backend)
+
+Clone repository and enter directory of repo:
+
+`git clone https://github.com/landen1221/Paintrest`
+
+`cd Paintrest`
+
+Install npm packages<br>
+`npm init -y`
+
+Install required packages<br>
+`npm install`
+
+Your project should be up and running, with a homescreen as seen below:
+<img src="_/../_images/landing.png">
 
 ### Paintrest is a web app that allows users to paint on a canvas and upload their creations to their profile.
 <img src="_/images/../../_images/create.png" >
