@@ -1,42 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import "../css/Navbar.css";
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import '../css/Navbar.css';
 
 const Navbar = () => {
     const [hasToken, setHasToken] = useState(false);
 
     useEffect(() => {
-        const existing = sessionStorage.getItem("_token");
+        const existing = sessionStorage.getItem('_token');
         if (existing) {
             setHasToken(true);
         }
     }, [hasToken]);
 
     const handleLogOutClick = () => {
-        sessionStorage.removeItem("_token");
-        sessionStorage.removeItem("username");
+        sessionStorage.removeItem('_token');
+        sessionStorage.removeItem('username');
         setHasToken(false);
     };
 
     return (
         <nav className="Nav">
-            <NavLink className="NavLink" exact to="/">
+            <NavLink className="NavLink" to="/">
                 <i className="fas fa-home"> paintrest</i>
             </NavLink>
-            <NavLink className="NavLink" exact to="/gallery">
+            <NavLink className="NavLink" to="/gallery">
                 <i className="far fa-images"> Gallery</i>
             </NavLink>
-            <NavLink className="NavLink" exact to="/create">
+            <NavLink className="NavLink" to="/create">
                 <i className="fas fa-palette"> Create</i>
             </NavLink>
             {hasToken && (
                 <>
-                    <NavLink className="NavLink" exact to="/profile">
+                    <NavLink className="NavLink" to="/profile">
                         <i className="fas fa-users"> Profile</i>
                     </NavLink>
                     <NavLink
                         className="NavLink"
-                        exact
                         to="login"
                         onClick={handleLogOutClick}
                     >
@@ -45,7 +44,7 @@ const Navbar = () => {
                 </>
             )}
             {!hasToken && (
-                <NavLink className="NavLink" exact to="/login">
+                <NavLink className="NavLink" to="/login">
                     <i className="fas fa-sign-in-alt"> Login</i>
                 </NavLink>
             )}

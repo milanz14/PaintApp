@@ -8,7 +8,6 @@ const Register = () => {
     const INITIAL_FORM_STATE = { username: '', password: '' };
     const navigate = useNavigate();
 
-    const [token, setToken] = useState('');
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
 
     const handleSubmit = async (e) => {
@@ -25,7 +24,6 @@ const Register = () => {
             )
             .then((res) => {
                 const { token, user } = res.data;
-                setToken(token);
                 console.log(res.data);
                 sessionStorage.setItem('_token', token);
                 sessionStorage.setItem('username', user);

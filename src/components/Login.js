@@ -9,7 +9,6 @@ const Login = () => {
     const INITIAL_FORM_STATE = { username: '', password: '' };
 
     const [loginData, setLoginData] = useState(INITIAL_FORM_STATE);
-    const [token, setToken] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +20,7 @@ const Login = () => {
             })
             .then((res) => {
                 const { token, username } = res.data;
-                setToken(token);
+
                 console.log(res.data);
                 sessionStorage.setItem('_token', token);
                 sessionStorage.setItem('username', username);

@@ -44,8 +44,8 @@ const Profile = () => {
                 </div>
             ) : (
                 <div>
-                    {images.map((image) => (
-                        <div className="profile-container" key={image.id}>
+                    {images.map((image, idx) => (
+                        <div className="profile-container" key={idx}>
                             <GalleryImage
                                 imageData={image.post_data}
                                 person={image.username}

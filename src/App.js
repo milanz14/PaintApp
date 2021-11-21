@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, Redirect } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import CreatePage from './components/CreatePage';
 import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
