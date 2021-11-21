@@ -72,7 +72,7 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="nav-link-modified"
-                                    to="login"
+                                    to="/Paintrest/login"
                                     onClick={handleLogOutClick}
                                 >
                                     <i className="fas fa-door-open"> Logout</i>

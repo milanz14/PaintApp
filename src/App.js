@@ -52,7 +52,7 @@ function App() {
                             element={<Login />}
                         />
                         <Route
-                            path="/profile/:userName"
+                            path="Paintrest/profile/:userName"
                             element={<Profile />}
                         />
                         <Route path="*" element={<LandingPage />} />
