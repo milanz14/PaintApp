@@ -3,7 +3,7 @@
 ## This project was built for the Mintbean Hackathon, Nov 16-23, 2021
 ## This project was built by Milan Z and Matthew W.
 
-### The project can be found at [here](https://milanz14.github.io/Paintrest/)
+### The project can be found here [https://milanz14.github.io/Paintrest/](https://milanz14.github.io/Paintrest/)
 
 ### Paintrest is a web app that allows users to paint on a canvas and upload their creations to their profile. 
 ### A screenshot of the app canvas interface is shown here: *** add image link ***
