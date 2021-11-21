@@ -11,34 +11,6 @@
     filter: drop-shadow(8px 8px 5px rgb(106, 106, 106));
 }
 
-.profile-container a {
-    border-top: black solid 1px;
-    width: 100%;
-
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3px;
-    /* line-height: 0rem; */
-    text-decoration: none;
-    background-color: #c9ada7;
-    opacity: 0.8;
+.loader {
+    margin-top: 4rem;
 }
-
-.profile-container p {
-    padding-top: 0.4rem;
-    padding-bottom: 0;
-    margin-bottom: 0;
-}
-
-.profile-container .black {
-    color: black;
-}
-
-/* .flex-direction {
-    flex-direction: row;
-}
-
-.gallery-children {
-    background-color: #fff;
-    width: 75%;
-} */

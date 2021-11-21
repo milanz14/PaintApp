@@ -5,30 +5,43 @@ import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import GalleryImage from './GalleryImage';
 
+import { useParams } from 'react-router-dom';
+
 const Profile = () => {
+    const data = useParams();
     const [images, setUser] = useState([]);
 
     useEffect(() => {
         async function getUser() {
-            const username = sessionStorage.getItem('username');
+            const username =
+                data.userName || sessionStorage.getItem('username');
             const userImages = await PaintrestAPI.myProfile(username);
             setUser(userImages);
         }
         getUser();
-    }, []);
+    }, [data.userName]);
 
     console.log(images);
     return (
         <>
-            <h3>My Showroom</h3>
+            {data.userName ? (
+                <h3>
+                    <b>{data.userName}</b> Showroom
+                </h3>
+            ) : (
+                <h3>My Showroom</h3>
+            )}
+
             {images.length === 0 ? (
-                <Loader
-                    type="Puff"
-                    color="#00BFFF"
-                    height={100}
-                    width={100}
-                    timeout={3000} //3 secs
-                />
+                <div className="loader">
+                    <Loader
+                        type="Puff"
+                        color="#00BFFF"
+                        height={120}
+                        width={120}
+                        timeout={3000} //3 secs
+                    />
+                </div>
             ) : (
                 <div>
                     {images.map((image) => (
