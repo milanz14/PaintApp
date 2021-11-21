@@ -2,4 +2,13 @@
     background-color: #22223b;
     color: #c9ada7;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+}
+
+.footer .footer-text {
+    display: block;
+    text-align: center;
+    /* margin-left: 50px; */
 }
