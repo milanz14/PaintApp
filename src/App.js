@@ -14,7 +14,7 @@ function App() {
             <Navbar />
             <div className="body-container">
                 <Routes>
-                    <Route exact path="/paintrest" element={<LandingPage />} />
+                    <Route exact path="/Paintrest" element={<LandingPage />} />
                     <Route exact path="/gallery" element={<Gallery />} />
                     <Route exact path="/create" element={<CreatePage />} />
                     <Route exact path="/profile" element={<Profile />} />
