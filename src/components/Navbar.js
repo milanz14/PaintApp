@@ -20,7 +20,7 @@ const Navbar = () => {
 
     return (
         <nav className="Nav">
-            <NavLink className="NavLink" exact to="/paintrest">
+            <NavLink className="NavLink" exact to="/Paintrest">
                 <i className="fas fa-home"> paintrest</i>
             </NavLink>
             <NavLink className="NavLink" exact to="/gallery">

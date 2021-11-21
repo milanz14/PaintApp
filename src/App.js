@@ -1,12 +1,12 @@
-import './App.css';
-import { Routes, Route, Redirect } from 'react-router-dom';
-import CreatePage from './components/CreatePage';
-import Navbar from './components/Navbar';
-import Gallery from './components/Gallery';
-import Profile from './components/Profile';
-import LandingPage from './components/LandingPage';
-import Register from './components/Register';
-import Login from './components/Login';
+import "./App.css";
+import { Routes, Route, Redirect } from "react-router-dom";
+import CreatePage from "./components/CreatePage";
+import Navbar from "./components/Navbar";
+import Gallery from "./components/Gallery";
+import Profile from "./components/Profile";
+import LandingPage from "./components/LandingPage";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
     return (
