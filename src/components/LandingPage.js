@@ -90,6 +90,7 @@ const LandingPage = () => {
                             <img
                                 src={devInfo[0].img}
                                 className="card-img-top-card"
+                                alt="milan profile pic"
                             />
                             <div className="card-body">
                                 <h5 className="card-title">
@@ -130,6 +131,7 @@ const LandingPage = () => {
                             <img
                                 src={devInfo[1].img}
                                 className="card-img-top-card"
+                                alt="matthew profile pic"
                             />
                             <div className="card-body">
                                 <h5 className="card-title">

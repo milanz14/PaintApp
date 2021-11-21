@@ -1,21 +1,20 @@
-import React, { useState } from "react";
-import links from "../config";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import links from '../config';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Register = () => {
     const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
-    const INITIAL_FORM_STATE = { username: "", password: "" };
+    const INITIAL_FORM_STATE = { username: '', password: '' };
     const navigate = useNavigate();
 
-    const [token, setToken] = useState("");
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!registerData.username || !registerData.password) {
             alert(
-                "You must provide a username and password in order to register!"
+                'You must provide a username and password in order to register!'
             );
         }
         await axios
@@ -24,23 +23,22 @@ const Register = () => {
                 JSON.stringify(registerData),
                 {
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
             .then((res) => {
                 const { token, user } = res.data;
-                setToken(token);
                 console.log(res.data);
-                sessionStorage.setItem("_token", token);
-                sessionStorage.setItem("username", user);
+                sessionStorage.setItem('_token', token);
+                sessionStorage.setItem('username', user);
                 clearInputs();
-                navigate("/create");
+                navigate('/create');
             })
             .catch((err) => {
                 // alert(err);
                 clearInputs();
-                navigate("/register");
+                navigate('/register');
             });
     };
 
@@ -53,7 +51,7 @@ const Register = () => {
     };
 
     const clearInputs = () => {
-        setRegisterData({ username: "", password: "" });
+        setRegisterData({ username: '', password: '' });
     };
 
     return (

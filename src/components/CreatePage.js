@@ -27,7 +27,6 @@ const CreatePage = () => {
     const [color, setColor] = useState('');
     const [boxes, setBoxes] = useState(INITIAL_STATE);
     const [lineState, setLineState] = useState(LINE_STATE);
-    const [canvasData, setCanvasData] = useState(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
