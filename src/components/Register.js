@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import links from '../config';
 import { useNavigate } from 'react-router-dom';
+import { LoginContext } from '../helper/Context';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
@@ -9,12 +12,13 @@ const Register = () => {
     const navigate = useNavigate();
 
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
+    const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!registerData.username || !registerData.password) {
-            alert(
-                'You must provide a username and password in order to register!'
+            return toast.error(
+                "You can't have an empty username or password when you are trying to register... "
             );
         }
         await axios
@@ -32,11 +36,13 @@ const Register = () => {
                 console.log(res.data);
                 sessionStorage.setItem('_token', token);
                 sessionStorage.setItem('username', user);
+                setLoggedIn(true);
+                toast.success(`Welcome to Paintrest, ${registerData.username}`);
                 clearInputs();
                 navigate('/create');
             })
             .catch((err) => {
-                // alert(err);
+                toast.error('Username already in use. Please try again.');
                 clearInputs();
                 navigate('/register');
             });
@@ -57,6 +63,7 @@ const Register = () => {
     return (
         <div>
             <div>
+                <h2>Register.</h2>
                 <h3>
                     Already Registered? Log in <a href="/login">here.</a>
                 </h3>
