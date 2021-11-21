@@ -42,7 +42,9 @@ const Gallery = () => {
                             />
                             <p>
                                 Created By:
-                                <Link to={`/profile/${image.username}`}>
+                                <Link
+                                    to={`/Paintrest/profile/${image.username}`}
+                                >
                                     {image.username}
                                 </Link>
                             </p>

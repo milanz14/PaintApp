@@ -1,49 +1,49 @@
-import axios from 'axios';
-import React, { useState, useContext } from 'react';
-import { LoginContext } from '../helper/Context';
-import { useNavigate } from 'react-router-dom';
-import links from '../config';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
+import React, { useState, useContext } from "react";
+import { LoginContext } from "../helper/Context";
+import { useNavigate } from "react-router-dom";
+import links from "../config";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
     const navigate = useNavigate();
     const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
-    const INITIAL_FORM_STATE = { username: '', password: '' };
+    const INITIAL_FORM_STATE = { username: "", password: "" };
 
     const [loginData, setLoginData] = useState(INITIAL_FORM_STATE);
-    const [token, setToken] = useState('');
     const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!loginData.username || !loginData.password) {
             return toast.error(
-                'You must provide a valid username and password to login'
+                "You must provide a valid username and password to login"
             );
         }
         await axios
             .post(`${BACKEND_BASE_URL}/auth/login`, JSON.stringify(loginData), {
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
             })
             .then((res) => {
                 const { token, username } = res.data;
 
                 console.log(res.data);
-                sessionStorage.setItem('_token', token);
-                sessionStorage.setItem('username', username);
+                sessionStorage.setItem("_token", token);
+                sessionStorage.setItem("username", username);
                 setLoggedIn(true);
                 toast.success(
                     `Welcome back to Paintrest, ${loginData.username}`
                 );
                 clearInputs();
-                navigate('/profile');
+                navigate("/Paintrest/profile");
             })
             .catch((err) => {
                 console.log(err);
                 clearInputs();
+                toast.error("Wrong Username or Password");
             });
     };
 
@@ -56,14 +56,14 @@ const Login = () => {
     };
 
     const clearInputs = () => {
-        setLoginData({ username: '', password: '' });
+        setLoginData({ username: "", password: "" });
     };
 
     return (
         <div>
             <h2>Login</h2>
             <h3>
-                Not Registered? Sign up <a href="/register">here.</a>
+                Not Registered? Sign up <a href="/Paintrest/register">here.</a>
             </h3>
             <form className="my-5" onSubmit={handleSubmit}>
                 <div class="input-group mb-3">
