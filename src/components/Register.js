@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import links from "../config";
 import { useNavigate } from "react-router-dom";
+import { LoginContext } from "../helper/Context";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,6 +13,7 @@ const Register = () => {
 
     const [token, setToken] = useState("");
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
+    const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,9 +38,8 @@ const Register = () => {
                 console.log(res.data);
                 sessionStorage.setItem("_token", token);
                 sessionStorage.setItem("username", user);
-                toast.success(
-                    "Registered successfully. Welcome to Paintrest :)"
-                );
+                setLoggedIn(true);
+                toast.success(`Welcome to Paintrest, ${registerData.username}`);
                 clearInputs();
                 navigate("/create");
             })

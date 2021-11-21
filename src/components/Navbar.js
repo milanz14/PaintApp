@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "../css/Navbar.css";
+import { toast } from "react-toastify";
+import { LoginContext } from "../helper/Context";
 
 const Navbar = () => {
-    const [hasToken, setHasToken] = useState(false);
+    const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     useEffect(() => {
         const existing = sessionStorage.getItem("_token");
         if (existing) {
-            setHasToken(true);
+            setLoggedIn(true);
         }
-    }, [hasToken]);
+    }, [loggedIn]);
 
     const handleLogOutClick = () => {
         sessionStorage.removeItem("_token");
         sessionStorage.removeItem("username");
-        setHasToken(false);
+        setLoggedIn(false);
+        toast.success("Logged out successfully. See you soon.");
     };
 
     return (
@@ -29,7 +32,7 @@ const Navbar = () => {
             <NavLink className="NavLink" exact to="/create">
                 <i className="fas fa-palette"> Create</i>
             </NavLink>
-            {hasToken && (
+            {loggedIn && (
                 <>
                     <NavLink className="NavLink" exact to="/profile">
                         <i className="fas fa-users"> Profile</i>
@@ -44,7 +47,7 @@ const Navbar = () => {
                     </NavLink>
                 </>
             )}
-            {!hasToken && (
+            {!loggedIn && (
                 <NavLink className="NavLink" exact to="/login">
                     <i className="fas fa-sign-in-alt"> Login</i>
                 </NavLink>
