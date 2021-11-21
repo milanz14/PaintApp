@@ -20,7 +20,7 @@ Assure API is up and running (Found here: https://github.com/milanz14/Paintrest-
 
 Clone repository and enter directory of repo:
 
-`git clone https://github.com/landen1221/Paintrest`
+`git clone https://github.com/milanz14/Paintrest`
 
 `cd Paintrest`
 
