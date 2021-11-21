@@ -25,7 +25,7 @@ const Gallery = () => {
             {images.length === 0 ? (
                 <div className="loader">
                     <Loader
-                        type="Puff"
+                        type="ThreeDots"
                         color="#9a8c98"
                         height={100}
                         width={100}

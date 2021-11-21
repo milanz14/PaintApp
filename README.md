@@ -5,10 +5,17 @@
 
 ### The project can be found here [https://milanz14.github.io/Paintrest/](https://milanz14.github.io/Paintrest/)
 
-### Paintrest is a web app that allows users to paint on a canvas and upload their creations to their profile. 
-### A screenshot of the app canvas interface is shown here: *** add image link ***
+### The project starts on the beautiful landing pages which introduces the app
+<img src="_/../_images/landing.png>
+
+### Paintrest is a web app that allows users to paint on a canvas and upload their creations to their profile.
+<img src="_/images/../../_images/create.png" >
 
 ### Users can view the gallery of recent posts and view other users' posts.
+<p>User Gallery</P>
+<img src="_/../_images/showroom.png">
+<p>The Art Show</P>
+<img src="_/../_images/gallery.png">
 
 ### The Front end of this is built with React with some FontAwesome and Bootstrap for styling.
 

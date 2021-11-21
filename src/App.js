@@ -7,6 +7,7 @@ import Profile from "./components/Profile";
 import LandingPage from "./components/LandingPage";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import { ToastContainer } from "react-toastify";
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path="*" element={<LandingPage />} />
                 </Routes>
             </div>
+            <ToastContainer position="top-center" autoClose={3000} />
         </div>
     );
 }
