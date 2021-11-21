@@ -21,7 +21,7 @@ const Gallery = () => {
 
     return (
         <>
-            <h3>Inspiration to help you get started</h3>
+            <h3>The Art Gallery of Paintrest</h3>
             {images.length === 0 ? (
                 <div className="loader">
                     <Loader
