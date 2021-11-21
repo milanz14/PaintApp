@@ -36,7 +36,7 @@ const Profile = () => {
             {images.length === 0 ? (
                 <div className="loader">
                     <Loader
-                        type="Puff"
+                        type="ThreeDots"
                         color="#9a8c98"
                         height={120}
                         width={120}
