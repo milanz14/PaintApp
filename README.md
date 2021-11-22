@@ -2,11 +2,13 @@
 
 **Purpose:** This project was created for a MintBeam hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
 
-**Summary:** Paintrest is a platform that allows users to create and save thier artwork to share with the world! 
+**Summary:** Paintrest is a platform that allows users to create and save thier artwork to share with the world!
 
 ## Reference Links
 
--   Developers: https://github.com/milanz14 & https://github.com/landen1221
+-   Matthew Landen (Developer): [Github] (https://github.com/landen1221) [Portfolio] (https://www.mattlanden.com/)
+-   Milan Zagorac (Developer): [Github] https://github.com/milanz14 [Portfolio] (https://www.milanz.dev/)
+
 -   API & Database Schema: https://github.com/milanz14/Paintrest-backend
 -   Live site: https://paintrest.surge.sh/
 
