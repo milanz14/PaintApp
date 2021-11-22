@@ -28,8 +28,9 @@ const LandingPage = () => {
         <>
             <div className="container">
                 <div className="jumbotron">
-                    <p className="lead py-4">
-                        Paintrest. Where artists express inspiration.
+                    <p className="h2 my-4">
+                        <strong>Paintrest</strong>. Where artists express
+                        inspiration.
                     </p>
                 </div>
 
@@ -37,19 +38,18 @@ const LandingPage = () => {
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <br />
                         <img
-                            className="card-img-top app-picture"
+                            className="card-img-top"
                             src={laptopSS}
-                            alt="screen shot of app main page"
+                            alt="screen shot of app create page"
                         ></img>
                     </div>
                 </div>
                 <div className="my-4">
                     <br />
-                    <p>
-                        With Paintrest, users can show off the next modern
-                        masterpiece by creating the painting of their dreams on
-                        our canvas and sharing for all the world to see. Sign up
-                        for free today! You may be the next Rembrandt!
+                    <p className="h2">
+                        Show off your modern masterpiece by creating the
+                        painting of your dreams and sharing it for all the world
+                        to see.
                     </p>
                 </div>
                 <div className="container">
