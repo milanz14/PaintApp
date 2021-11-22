@@ -5,6 +5,7 @@ import { LoginContext } from '../helper/Context';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../css/Register.css';
 
 const Register = () => {
     const BACKEND_BASE_URL =
@@ -62,7 +63,7 @@ const Register = () => {
     };
 
     return (
-        <div>
+        <div className="Register">
             <div>
                 <h2>Register.</h2>
                 <h3>

@@ -1,0 +1,10 @@
+.Register {
+    width: 50%;
+    min-width: 350px;
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.Register h2 {
+    font-weight: bolder;
+}

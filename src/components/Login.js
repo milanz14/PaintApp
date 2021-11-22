@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import links from '../config';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../css/Login.css';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -61,7 +62,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="Login">
             <h2>Login</h2>
             <h3>
                 Not Registered? Sign up <a href="/register">here.</a>
