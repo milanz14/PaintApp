@@ -1,24 +1,24 @@
-import React, { useEffect, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import '../css/Navbar.css';
-import { toast } from 'react-toastify';
-import { LoginContext } from '../helper/Context';
+import React, { useEffect, useContext } from "react";
+import { NavLink } from "react-router-dom";
+import "../css/Navbar.css";
+import { toast } from "react-toastify";
+import { LoginContext } from "../helper/Context";
 
 const Navbar = () => {
     const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     useEffect(() => {
-        const existing = sessionStorage.getItem('_token');
+        const existing = sessionStorage.getItem("_token");
         if (existing) {
             setLoggedIn(true);
         }
     }, [loggedIn]);
 
     const handleLogOutClick = () => {
-        sessionStorage.removeItem('_token');
-        sessionStorage.removeItem('username');
+        sessionStorage.removeItem("_token");
+        sessionStorage.removeItem("username");
         setLoggedIn(false);
-        toast.success('Logged out successfully. See you soon.');
+        toast.success("Logged out successfully. See you soon.");
     };
 
     return (
@@ -40,17 +40,17 @@ const Navbar = () => {
                 <ul className="navbar-nav nav-modified">
                     <li className="nav-item">
                         <NavLink className="nav-link-modified" to="/">
-                            <i className="fas fa-home">&ensp; paintrest</i>
+                            <i className="fas fa-home"> paintrest</i>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink className="nav-link-modified" to="/gallery">
-                            <i className="far fa-images">&ensp; Gallery</i>
+                            <i className="far fa-images"> Gallery</i>
                         </NavLink>
                     </li>
                     <li>
                         <NavLink className="nav-link-modified" to="/create">
-                            <i className="fas fa-palette">&ensp; Create</i>
+                            <i className="fas fa-palette"> Create</i>
                         </NavLink>
                     </li>
                     {loggedIn && (
@@ -60,9 +60,7 @@ const Navbar = () => {
                                     className="nav-link-modified"
                                     to="/profile"
                                 >
-                                    <i className="fas fa-users">
-                                        &ensp; Profile
-                                    </i>
+                                    <i className="fas fa-users"> Profile</i>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
@@ -71,9 +69,7 @@ const Navbar = () => {
                                     to="/login"
                                     onClick={handleLogOutClick}
                                 >
-                                    <i className="fas fa-door-open">
-                                        &ensp; Logout
-                                    </i>
+                                    <i className="fas fa-door-open"> Logout</i>
                                 </NavLink>
                             </li>
                         </>
