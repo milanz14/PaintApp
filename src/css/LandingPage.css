@@ -45,6 +45,7 @@
     display: inline-block;
     width: 40%;
     text-align: center;
+    min-width: 300px;
 }
 
 #login {
