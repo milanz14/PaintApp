@@ -72,7 +72,7 @@ const CreatePage = () => {
         const validUser = sessionStorage.getItem('_token');
         if (!validUser) {
             toast.error('You must be logged in to save');
-            navigate('/Paintrest/login');
+            navigate('/login');
         } else {
             const canvas = canvasRef.current;
             const username = sessionStorage.getItem('username') || 'Anonymous';
@@ -87,7 +87,7 @@ const CreatePage = () => {
                 toast.success(
                     'Your masterpeice has been added to your gallery.'
                 );
-                navigate('/Paintrest/profile');
+                navigate('/profile');
             }
         }
     };
