@@ -8,7 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const navigate = useNavigate();
-    const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
+    const BACKEND_BASE_URL =
+        process.env.REACT_APP_BASE_URL || links.REACT_APP_BASE_URL;
     const INITIAL_FORM_STATE = { username: '', password: '' };
 
     const [loginData, setLoginData] = useState(INITIAL_FORM_STATE);

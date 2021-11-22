@@ -7,7 +7,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
-    const BACKEND_BASE_URL = links.REACT_APP_BASE_URL;
+    const BACKEND_BASE_URL =
+        process.env.REACT_APP_BASE_URL || links.REACT_APP_BASE_URL;
     const INITIAL_FORM_STATE = { username: '', password: '' };
     const navigate = useNavigate();
 
