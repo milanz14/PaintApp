@@ -68,29 +68,33 @@ const Register = () => {
                 <h3>
                     Already Registered? Log in <a href="/login">here.</a>
                 </h3>
-                <form className="my-5" onSubmit={handleSubmit}>
-                    <div className="input-group mb-3">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Username"
-                            name="username"
-                            value={registerData.username}
-                            onChange={handleChange}
-                        />
+                <div className="d-flex justify-content-center my-3">
+                    <div className="col-6">
+                        <form className="my-5" onSubmit={handleSubmit}>
+                            <div className="input-group mb-3">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Username"
+                                    name="username"
+                                    value={registerData.username}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div class="input-group mb-3">
+                                <input
+                                    type="password"
+                                    className="form-control"
+                                    placeholder="Password"
+                                    name="password"
+                                    value={registerData.password}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <button className="btn">Register</button>
+                        </form>
                     </div>
-                    <div class="input-group mb-3">
-                        <input
-                            type="password"
-                            className="form-control"
-                            placeholder="Password"
-                            name="password"
-                            value={registerData.password}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <button className="btn">Register</button>
-                </form>
+                </div>
             </div>
         </div>
     );
