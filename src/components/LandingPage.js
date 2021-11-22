@@ -74,7 +74,6 @@ const LandingPage = () => {
                     </a>
                 </div>
             </div>
-
             <br />
             <div className="container developers">
                 <h2>MEET THE DEVELOPERS</h2>

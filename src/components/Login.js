@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { LoginContext } from '../helper/Context';
 import { useNavigate } from 'react-router-dom';
 import links from '../config';
 import { toast } from 'react-toastify';
@@ -11,6 +12,7 @@ const Login = () => {
     const INITIAL_FORM_STATE = { username: '', password: '' };
 
     const [loginData, setLoginData] = useState(INITIAL_FORM_STATE);
+    const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,15 +33,17 @@ const Login = () => {
                 console.log(res.data);
                 sessionStorage.setItem('_token', token);
                 sessionStorage.setItem('username', username);
+                setLoggedIn(true);
                 toast.success(
                     `Welcome back to Paintrest, ${loginData.username}`
                 );
                 clearInputs();
-                navigate('/profile');
+                navigate('/Paintrest/profile');
             })
             .catch((err) => {
                 console.log(err);
                 clearInputs();
+                toast.error('Wrong Username or Password');
             });
     };
 
@@ -59,7 +63,7 @@ const Login = () => {
         <div>
             <h2>Login</h2>
             <h3>
-                Not Registered? Sign up <a href="/register">here.</a>
+                Not Registered? Sign up <a href="/Paintrest/register">here.</a>
             </h3>
             <form className="my-5" onSubmit={handleSubmit}>
                 <div className="input-group mb-3">
