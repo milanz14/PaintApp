@@ -33,14 +33,14 @@ const Navbar = () => {
                 aria-label="Toggle Navigation"
             >
                 <span className="toggle-element">
-                    <i className="fas fa-home"></i>
+                    <i className="fas fa-bars"></i>
                 </span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav nav-modified">
                     <li className="nav-item">
                         <NavLink className="nav-link-modified" to="/">
-                            <i className="fas fa-home"> paintrest</i>
+                            <i className="fas fa-home"> Home</i>
                         </NavLink>
                     </li>
                     <li className="nav-item">
