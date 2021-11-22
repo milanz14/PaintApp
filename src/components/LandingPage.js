@@ -1,25 +1,25 @@
-import React from "react";
-import "../css/LandingPage.css";
-import milanImg from "../assets/milan_profile.JPG";
-import matthewImg from "../assets/matthew_profile.JPG";
-import laptopSS from "../assets/laptop.png";
+import React from 'react';
+import '../css/LandingPage.css';
+import milanImg from '../assets/milan_profile.JPG';
+import matthewImg from '../assets/matthew_profile.JPG';
+import laptopSS from '../assets/laptop.png';
 
 const LandingPage = () => {
     const devInfo = [
         {
-            name: "Milan Zagorac",
-            bio: "Milan is a full-stack software developer based in Toronto. With a decade of experience in Sales, Business Development and a formal education in Mechanical Engineering, Milan was always fascinated with solving problems. In 2019, Milan started down a path of self-study that culminated in completing an intensive, 9-month Software Development bootcamp through Springboard in 2021. Milan is an advocate of life-long learning and is always looking forwards to keeping up with the latest in technology. Milan is proficient with JavaScript, TypeScript, React, Express, Node, Python, Flask, MongoDB and Postgres.",
-            linkedIn: "https://www.linkedin.com/in/milanzagorac/",
-            github: "https://www.github.com/milanz14",
-            portfolio: "https://www.milanz.dev",
+            name: 'Milan Zagorac',
+            bio: 'Milan is a full-stack software developer based in Toronto. With a decade of experience in Sales, Business Development and a formal education in Mechanical Engineering, Milan was always fascinated with solving problems. In 2019, Milan started down a path of self-study that culminated in completing an intensive, 9-month Software Development bootcamp through Springboard in 2021. Milan is an advocate of life-long learning and is always looking forwards to keeping up with the latest in technology. Milan is proficient with JavaScript, TypeScript, React, Express, Node, Python, Flask, MongoDB and Postgres.',
+            linkedIn: 'https://www.linkedin.com/in/milanzagorac/',
+            github: 'https://www.github.com/milanz14',
+            portfolio: 'https://www.milanz.dev',
             img: milanImg,
         },
         {
-            name: "Matthew Landen",
+            name: 'Matthew Landen',
             bio: "Passionate full-stack developer based in Los Angeles. Matt has nearly a decade of sales and management experience in a wide arrange of industries, including creating his own tech startup known as MechFinder in 2016. Most recently he's managed $100,000+ LED lighting projects for some of the largest car dealerships in Southern California. He's spent all of his free time over the last 2+ years coding in hopes of making a long-term career transition back into the tech space. This includes completing an intensive, 9-month Software Engineering Bootcampe through Springboard in 2021!",
-            linkedIn: "https://www.linkedin.com/in/landen1221/",
-            github: "https://github.com/landen1221",
-            portfolio: "https://landen1221.github.io/personal-portfolio/",
+            linkedIn: 'https://www.linkedin.com/in/landen1221/',
+            github: 'https://github.com/landen1221',
+            portfolio: 'https://landen1221.github.io/personal-portfolio/',
             img: matthewImg,
         },
     ];
@@ -29,13 +29,14 @@ const LandingPage = () => {
             <div className="container">
                 <div className="jumbotron">
                     <p className="h2 my-4">
-                        <strong>Paintrest</strong>. Where artists express
-                        inspiration.
+                        <strong>Paintrest</strong>: Where artists express
+                        inspiration
                     </p>
                 </div>
 
                 <div className="row mx-auto">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
+                    <div className="col-lg-1 col-md-1"></div>
+                    <div className="col-lg-10 col-md-10 col-sm-12">
                         <br />
                         <img
                             className="card-img-top"
@@ -43,6 +44,7 @@ const LandingPage = () => {
                             alt="screen shot of app create page"
                         ></img>
                     </div>
+                    <div className="col-lg-1 col-md-1"></div>
                 </div>
                 <div className="my-4">
                     <br />
@@ -54,9 +56,11 @@ const LandingPage = () => {
                 </div>
                 <div className="container">
                     <br />
-                    <h4>Ready to get started?</h4>
+                    <h4>
+                        <strong>Ready to get started?</strong>
+                    </h4>
                     <a
-                        className="btn btn-md me-1 my-5"
+                        className="btn btn-md me-1 my-4"
                         href="/register"
                         role="button"
                     >
