@@ -1,36 +1,36 @@
-import React, { useState, useEffect, useContext } from "react";
-import { NavLink } from "react-router-dom";
-import "../css/Navbar.css";
-import { toast } from "react-toastify";
-import { LoginContext } from "../helper/Context";
+import React, { useEffect, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import '../css/Navbar.css';
+import { toast } from 'react-toastify';
+import { LoginContext } from '../helper/Context';
 
 const Navbar = () => {
     const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     useEffect(() => {
-        const existing = sessionStorage.getItem("_token");
+        const existing = sessionStorage.getItem('_token');
         if (existing) {
             setLoggedIn(true);
         }
     }, [loggedIn]);
 
     const handleLogOutClick = () => {
-        sessionStorage.removeItem("_token");
-        sessionStorage.removeItem("username");
+        sessionStorage.removeItem('_token');
+        sessionStorage.removeItem('username');
         setLoggedIn(false);
-        toast.success("Logged out successfully. See you soon.");
+        toast.success('Logged out successfully. See you soon.');
     };
 
     return (
         <nav className="navbar navbar-expand-md bg-dark-modified">
             <button
                 type="button"
-                class="navbar-toggler"
+                className="navbar-toggler"
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav"
                 aria-expanded="false"
-                aria-lable="Toggle Navigation"
+                aria-label="Toggle Navigation"
             >
                 <span className="toggle-element">
                     <i className="fas fa-home"></i>
@@ -76,11 +76,7 @@ const Navbar = () => {
                     )}
                     {!loggedIn && (
                         <li className="nav-item">
-                            <NavLink
-                                className="nav-link-modified"
-                                exact
-                                to="/login"
-                            >
+                            <NavLink className="nav-link-modified" to="/login">
                                 <i className="fas fa-sign-in-alt"> Login</i>
                             </NavLink>
                         </li>

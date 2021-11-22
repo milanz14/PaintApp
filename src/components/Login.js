@@ -1,9 +1,8 @@
 import axios from 'axios';
-import React, { useState, useContext } from 'react';
-import { LoginContext } from '../helper/Context';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import links from '../config';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -12,8 +11,6 @@ const Login = () => {
     const INITIAL_FORM_STATE = { username: '', password: '' };
 
     const [loginData, setLoginData] = useState(INITIAL_FORM_STATE);
-    const [token, setToken] = useState('');
-    const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -34,7 +31,6 @@ const Login = () => {
                 console.log(res.data);
                 sessionStorage.setItem('_token', token);
                 sessionStorage.setItem('username', username);
-                setLoggedIn(true);
                 toast.success(
                     `Welcome back to Paintrest, ${loginData.username}`
                 );
@@ -66,20 +62,20 @@ const Login = () => {
                 Not Registered? Sign up <a href="/register">here.</a>
             </h3>
             <form className="my-5" onSubmit={handleSubmit}>
-                <div class="input-group mb-3">
+                <div className="input-group mb-3">
                     <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Username"
                         name="username"
                         value={loginData.username}
                         onChange={handleChange}
                     />
                 </div>
-                <div class="input-group mb-3">
+                <div className="input-group mb-3">
                     <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         placeholder="Password"
                         name="password"
                         value={loginData.password}

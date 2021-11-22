@@ -12,7 +12,6 @@ const Register = () => {
     const navigate = useNavigate();
 
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
-    const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,7 +35,6 @@ const Register = () => {
                 console.log(res.data);
                 sessionStorage.setItem('_token', token);
                 sessionStorage.setItem('username', user);
-                setLoggedIn(true);
                 toast.success(`Welcome to Paintrest, ${registerData.username}`);
                 clearInputs();
                 navigate('/create');
@@ -78,7 +76,7 @@ const Register = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <div class="input-group mb-3">
+                    <div className="input-group mb-3">
                         <input
                             type="password"
                             className="form-control"
