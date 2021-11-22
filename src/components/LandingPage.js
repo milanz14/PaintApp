@@ -16,7 +16,7 @@ const LandingPage = () => {
         },
         {
             name: 'Matthew Landen',
-            bio: "Passionate full-stack developer based in Los Angeles. Matt has nearly a decade of sales and management experience in a wide arrange of industries, including creating his own tech startup known as MechFinder in 2016. Most recently he's managed $100,000+ LED lighting projects for some of the largest car dealerships in Southern California. He's spent all of his free time over the last 2+ years coding in hopes of making a long-term career transition back into the tech space. This includes completing an intensive, 9-month Software Engineering Bootcampe through Springboard in 2021!",
+            bio: "Passionate full-stack developer based in Los Angeles. Matt has nearly a decade of sales and management experience in a wide arrange of industries, including creating his own tech startup known as MechFinder between 2015-2017. Most recently he's managed $100,000+ LED lighting projects for some of the largest car dealerships in Southern California. He's spent all of his free time over the last 2+ years coding in hopes of making a long-term career transition back into the tech space. This includes completing an intensive, 9-month Software Engineering Bootcampe through Springboard in 2021!",
             linkedIn: 'https://www.linkedin.com/in/landen1221/',
             github: 'https://github.com/landen1221',
             portfolio: 'https://landen1221.github.io/personal-portfolio/',
@@ -85,7 +85,9 @@ const LandingPage = () => {
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">
-                                        {devInfo[0].name.toUpperCase()}
+                                        <strong>
+                                            {devInfo[0].name.toUpperCase()}
+                                        </strong>
                                     </h5>
                                     <p className="card-text text-start">
                                         {devInfo[0].bio}
@@ -126,7 +128,10 @@ const LandingPage = () => {
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">
-                                        {devInfo[1].name.toUpperCase()}
+                                        <strong>
+                                            {' '}
+                                            {devInfo[1].name.toUpperCase()}
+                                        </strong>
                                     </h5>
                                     <p className="card-text text-start">
                                         {devInfo[1].bio}
