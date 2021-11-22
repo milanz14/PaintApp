@@ -43,12 +43,12 @@ const Navbar = () => {
                             <i className="fas fa-home"> paintrest</i>
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="nav-item">
                         <NavLink className="nav-link-modified" to="/gallery">
                             <i className="far fa-images"> Gallery</i>
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="nav-item">
                         <NavLink className="nav-link-modified" to="/create">
                             <i className="fas fa-palette"> Create</i>
                         </NavLink>
