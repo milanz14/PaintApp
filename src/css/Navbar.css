@@ -31,7 +31,7 @@
 
 .navbar-nav > li {
     width: 50%;
-    border-left: #f2e9e4 solid 1px;
-    border-right: #f2e9e4 solid 1px;
+    border: 1px solid #f2e9e4;
+    border-width: 0 1px;
     text-align: center;
 }
