@@ -40,7 +40,7 @@ const Login = () => {
                     `Welcome back to Paintrest, ${loginData.username}`
                 );
                 clearInputs();
-                navigate('/profile');
+                navigate('/Paintrest/profile');
             })
             .catch((err) => {
                 console.log(err);
@@ -65,7 +65,7 @@ const Login = () => {
         <div className="Login">
             <h2>Login</h2>
             <h3>
-                Not Registered? Sign up <a href="/register">here.</a>
+                Not Registered? Sign up <a href="/Paintrest/register">here.</a>
             </h3>
             <form className="my-5" onSubmit={handleSubmit}>
                 <div className="input-group mb-3">

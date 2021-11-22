@@ -39,17 +39,23 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav nav-modified">
                     <li className="nav-item">
-                        <NavLink className="nav-link-modified" to="/">
+                        <NavLink className="nav-link-modified" to="/Paintrest/">
                             <i className="fas fa-home">&ensp; paintrest</i>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="nav-link-modified" to="/gallery">
+                        <NavLink
+                            className="nav-link-modified"
+                            to="/Paintrest/gallery"
+                        >
                             <i className="far fa-images">&ensp; Gallery</i>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="nav-link-modified" to="/create">
+                        <NavLink
+                            className="nav-link-modified"
+                            to="/Paintrest/create"
+                        >
                             <i className="fas fa-palette">&ensp; Create</i>
                         </NavLink>
                     </li>
@@ -58,7 +64,7 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="nav-link-modified"
-                                    to="/profile"
+                                    to="/Paintrest/profile"
                                 >
                                     <i className="fas fa-users">
                                         &ensp; Profile
@@ -68,7 +74,7 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <NavLink
                                     className="nav-link-modified"
-                                    to="/login"
+                                    to="/Paintrest/login"
                                     onClick={handleLogOutClick}
                                 >
                                     <i className="fas fa-door-open">
@@ -80,7 +86,10 @@ const Navbar = () => {
                     )}
                     {!loggedIn && (
                         <li className="nav-item">
-                            <NavLink className="nav-link-modified" to="/login">
+                            <NavLink
+                                className="nav-link-modified"
+                                to="/Paintrest/login"
+                            >
                                 <i className="fas fa-sign-in-alt"> Login</i>
                             </NavLink>
                         </li>
