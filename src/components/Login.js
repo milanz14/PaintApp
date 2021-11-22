@@ -66,29 +66,33 @@ const Login = () => {
             <h3>
                 Not Registered? Sign up <a href="/register">here.</a>
             </h3>
-            <form className="my-5" onSubmit={handleSubmit}>
-                <div className="input-group mb-3">
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Username"
-                        name="username"
-                        value={loginData.username}
-                        onChange={handleChange}
-                    />
+            <div className="d-flex justify-content-center my-3">
+                <div className="col-6">
+                    <form className="my-5" onSubmit={handleSubmit}>
+                        <div className="input-group mb-3">
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Username"
+                                name="username"
+                                value={loginData.username}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <div className="input-group mb-3">
+                            <input
+                                type="password"
+                                className="form-control"
+                                placeholder="Password"
+                                name="password"
+                                value={loginData.password}
+                                onChange={handleChange}
+                            />
+                        </div>
+                        <button className="btn">Login</button>
+                    </form>
                 </div>
-                <div className="input-group mb-3">
-                    <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Password"
-                        name="password"
-                        value={loginData.password}
-                        onChange={handleChange}
-                    />
-                </div>
-                <button className="btn">Login</button>
-            </form>
+            </div>
         </div>
     );
 };
