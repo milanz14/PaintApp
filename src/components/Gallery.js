@@ -39,7 +39,7 @@ const Gallery = () => {
         }
 
         // Timeout is simply to make it obvious Infinite Scroll was added
-        setTimeout(() => nextBatch(), 1000);
+        nextBatch();
     };
 
     return (
@@ -67,7 +67,7 @@ const Gallery = () => {
                                 color="#9a8c98"
                                 height={100}
                                 width={100}
-                                timeout={4000} //3 secs
+                                timeout={8000} //8 secs
                             />
                         }
                         endMessage={
