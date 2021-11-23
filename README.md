@@ -1,6 +1,6 @@
 # Paintrest
 
-**Purpose:** This project was created for a MintBeam hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
+**Purpose:** This project was created for a MintBean hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
 
 **Summary:** Paintrest is a platform that allows users to create and save thier artwork to share with the world!
 
