@@ -1,15 +1,15 @@
-import React, { useState, useContext } from "react";
-import links from "../config";
-import { useNavigate } from "react-router-dom";
-import { LoginContext } from "../helper/Context";
-import axios from "axios";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useContext } from 'react';
+import links from '../config';
+import { useNavigate } from 'react-router-dom';
+import { LoginContext } from '../helper/Context';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const BACKEND_BASE_URL =
         process.env.REACT_APP_BASE_URL || links.REACT_APP_BASE_URL;
-    const INITIAL_FORM_STATE = { username: "", password: "" };
+    const INITIAL_FORM_STATE = { username: '', password: '' };
     const navigate = useNavigate();
 
     const [registerData, setRegisterData] = useState(INITIAL_FORM_STATE);
@@ -28,24 +28,23 @@ const Register = () => {
                 JSON.stringify(registerData),
                 {
                     headers: {
-                        "Content-Type": "application/json",
+                        'Content-Type': 'application/json',
                     },
                 }
             )
             .then((res) => {
                 const { token, user } = res.data;
-                console.log(res.data);
-                sessionStorage.setItem("_token", token);
-                sessionStorage.setItem("username", user);
+                sessionStorage.setItem('_token', token);
+                sessionStorage.setItem('username', user);
                 setLoggedIn(true);
                 toast.success(`Welcome to Paintrest, ${registerData.username}`);
                 clearInputs();
-                navigate("/create");
+                navigate('/create');
             })
             .catch((err) => {
-                toast.error("Username already in use. Please try again.");
+                toast.error('Username already in use. Please try again.');
                 clearInputs();
-                navigate("/register");
+                navigate('/register');
             });
     };
 
@@ -58,7 +57,7 @@ const Register = () => {
     };
 
     const clearInputs = () => {
-        setRegisterData({ username: "", password: "" });
+        setRegisterData({ username: '', password: '' });
     };
 
     return (

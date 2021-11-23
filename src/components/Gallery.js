@@ -14,8 +14,6 @@ const Gallery = () => {
     const [hasMore, setHasMore] = useState(true);
     const [currLastId, setCurrLastId] = useState(0);
 
-    console.log(images);
-
     // used for inital render
     useEffect(() => {
         async function getImages() {

@@ -57,7 +57,6 @@ const CreatePage = () => {
     };
 
     const handleColorPickChange = (e) => {
-        // console.log(e.target.value);
         setColor(e.target.value);
     };
 
@@ -65,7 +64,6 @@ const CreatePage = () => {
         setLineState({
             [e.target.name]: e.target.value,
         });
-        // console.log(lineState);
     };
 
     const handleSaveData = async () => {
@@ -80,9 +78,6 @@ const CreatePage = () => {
             if (blankCanvasData === d) {
                 toast.warning('No drawing to save');
             } else {
-                console.log('saved canvas');
-                sessionStorage.setItem('image_data', d);
-                console.log(d);
                 await PaintrestAPI.addNewImage(d, username);
                 toast.success(
                     'Your masterpeice has been added to your gallery.'

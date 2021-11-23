@@ -24,14 +24,10 @@ class PaintrestAPI {
         post_name = 'testPost',
         method = 'post'
     ) {
-        console.log(`Running Api.addNewImage`);
         const url = `${BASE_API_URL}/posts/new`;
         const data = { post_name, post_data, username };
-        console.log(data);
         try {
             const newPost = await axios({ url, data, method });
-            console.log('**********');
-            console.log(newPost);
             return newPost.data;
         } catch (err) {
             console.error('API Error:', err.response);
@@ -52,30 +48,10 @@ class PaintrestAPI {
         }
     }
 
-    // static async myProfile(token, username, method = 'get') {
-    //     const url = `${BASE_API_URL}/user/account/${username}`;
-    //     console.log(`---${url}---`);
-    //     try {
-    //         const data = { _token: token, username };
-    //         console.log(data);
-    //         const userInfo = await axios({
-    //             url,
-    //             data,
-    //             method,
-    //         });
-    //         return userInfo.data;
-    //     } catch (err) {
-    //         console.error('API Error:', err.response);
-    //         let message = err.response.data.error.message;
-    //         throw Array.isArray(message) ? message : [message];
-    //     }
-    // }
-
     static async myProfile(username, method = 'get') {
         const url = `${BASE_API_URL}/user/${username}`;
         try {
             const userInfo = await axios({ url, method });
-            console.log(userInfo.data);
             return userInfo.data.userPosts.posts;
         } catch (err) {
             console.error('API Error:', err.response);
@@ -89,7 +65,6 @@ class PaintrestAPI {
         const url = `${BASE_API_URL}/posts/next/${numPosts}/${currLastId}`;
         try {
             const nextBatch = await axios({ url, method });
-            console.log(nextBatch.data);
             return nextBatch.data;
         } catch (err) {
             console.error('API Error:', err.response);
