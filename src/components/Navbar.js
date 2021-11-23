@@ -1,28 +1,28 @@
-import React, { useEffect, useContext } from 'react';
-import { NavLink } from 'react-router-dom';
-import '../css/Navbar.css';
-import { toast } from 'react-toastify';
-import { LoginContext } from '../helper/Context';
+import React, { useEffect, useContext } from "react";
+import { NavLink } from "react-router-dom";
+import "../css/Navbar.css";
+import { toast } from "react-toastify";
+import { LoginContext } from "../helper/Context";
 
 const Navbar = () => {
     const { loggedIn, setLoggedIn } = useContext(LoginContext);
 
     useEffect(() => {
-        const existing = sessionStorage.getItem('_token');
+        const existing = sessionStorage.getItem("_token");
         if (existing) {
             setLoggedIn(true);
         }
     }, [loggedIn]);
 
     const handleLogOutClick = () => {
-        sessionStorage.removeItem('_token');
-        sessionStorage.removeItem('username');
+        sessionStorage.removeItem("_token");
+        sessionStorage.removeItem("username");
         setLoggedIn(false);
-        toast.success('Logged out successfully. See you soon.');
+        toast.success("Logged out successfully. See you soon.");
     };
 
     return (
-        <nav className="navbar navbar-expand-md bg-dark-modified">
+        <nav className="navbar navbar-expand-md bg-dark-modified py-4">
             <button
                 type="button"
                 className="navbar-toggler"

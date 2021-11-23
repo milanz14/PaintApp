@@ -45,7 +45,7 @@
 
 @media (min-width: 771px) {
     .navbar {
-        height: 3rem;
+        height: 1em;
     }
 
     .navbar-nav {
