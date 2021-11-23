@@ -6,18 +6,43 @@ import GalleryImage from './GalleryImage';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { Link } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const Gallery = () => {
-    const imageCount = 15;
+    const incrementBy = 9;
     const [images, setImages] = useState([]);
+    const [hasMore, setHasMore] = useState(true);
+    const [currLastId, setCurrLastId] = useState(0);
 
+    console.log(images);
+
+    // used for inital render
     useEffect(() => {
         async function getImages() {
-            const images = await PaintrestAPI.getImages(imageCount);
-            setImages(images.posts);
+            const newImages = await PaintrestAPI.getImages(incrementBy);
+            setImages(newImages.posts);
+            setCurrLastId(newImages.posts[newImages.posts.length - 1].id);
         }
         getImages();
     }, []);
+
+    // used for infinite scroll
+    const loadMore = () => {
+        async function nextBatch() {
+            const newImages = await PaintrestAPI.getNextBatch(
+                incrementBy,
+                currLastId
+            );
+            if (newImages.posts[newImages.posts.length - 1].id === 1) {
+                setHasMore(false);
+            }
+            setCurrLastId(newImages.posts[newImages.posts.length - 1].id);
+            setImages([...images, ...newImages.posts]);
+        }
+
+        // Timeout is simply to make it obvious Infinite Scroll was added
+        setTimeout(() => nextBatch(), 1500);
+    };
 
     return (
         <>
@@ -29,25 +54,45 @@ const Gallery = () => {
                         color="#9a8c98"
                         height={100}
                         width={100}
-                        timeout={4000} //3 secs
+                        timeout={8000} //8 secs
                     />
                 </div>
             ) : (
                 <div>
-                    {images.map((image) => (
-                        <div className="gallery-container" key={image.id}>
-                            <GalleryImage
-                                imageData={image.post_data}
-                                person={image.username}
+                    <InfiniteScroll
+                        dataLength={images.length}
+                        next={loadMore}
+                        hasMore={hasMore}
+                        loader={
+                            <Loader
+                                type="ThreeDots"
+                                color="#9a8c98"
+                                height={100}
+                                width={100}
+                                timeout={4000} //3 secs
                             />
-                            <p>
-                                Created By:
-                                <Link to={`/profile/${image.username}`}>
-                                    {image.username}
-                                </Link>
+                        }
+                        endMessage={
+                            <p style={{ textAlign: 'center' }}>
+                                <b>Congrats... You've reached the end!</b>
                             </p>
-                        </div>
-                    ))}
+                        }
+                    >
+                        {images.map((image) => (
+                            <div className="gallery-container" key={image.id}>
+                                <GalleryImage
+                                    imageData={image.post_data}
+                                    person={image.username}
+                                />
+                                <p>
+                                    Created By:
+                                    <Link to={`/profile/${image.username}`}>
+                                        {image.username}
+                                    </Link>
+                                </p>
+                            </div>
+                        ))}
+                    </InfiniteScroll>
                 </div>
             )}
         </>

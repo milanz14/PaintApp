@@ -35,6 +35,8 @@ function App() {
                     </Routes>
                 </div>
                 <ToastContainer position="top-center" autoClose={3000} />
+                <br />
+                <br />
                 <Footer />
             </div>
         </LoginContext.Provider>
