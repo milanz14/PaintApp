@@ -6,6 +6,7 @@ import PaintrestAPI from "../apiHandler";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import blankCanvasData from "../blankCanvas.js";
+import { isMobile, isBrowser } from "react-device-detect";
 
 const CreatePage = () => {
     const navigate = useNavigate();
@@ -37,6 +38,9 @@ const CreatePage = () => {
     const [lineState, setLineState] = useState(LINE_STATE);
 
     useEffect(() => {
+        if (isMobile) {
+            return null;
+        }
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         context.lineCap = lineState.lineStyle;
@@ -101,85 +105,99 @@ const CreatePage = () => {
         context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
-    return (
-        <>
-            <div className="container" style={{ width: boxes.width }}>
-                <div className="row shadow-md p-3 mb-5 bg-body-edited rounded box-color">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                        <div className="d-flex justify-content-center my-3 input-group input-group-sm">
-                            <label
-                                htmlFor="lineStyle"
-                                className="form-label px-4"
-                            >
-                                Line Style
-                            </label>
-                            <select
-                                name="lineStyle"
-                                id="lineStyle"
-                                value={lineState.lineStyle}
-                                className="form-select"
-                                onChange={handleLineChange}
-                            >
-                                <option value="square">Square</option>
-                                <option value="round">Round</option>
-                            </select>
-                        </div>
-                        <div className="d-flex justify-content-center input-group input-group-sm my-3 px-4">
-                            <label
-                                htmlFor="lineWidth"
-                                className="form-label px-4"
-                            >
-                                Line Width
-                            </label>
-                            <select
-                                name="lineWidth"
-                                id="lineWidth"
-                                value={lineState.lineWidth}
-                                className="form-select"
-                                onChange={handleLineChange}
-                            >
-                                <option value={5}>5</option>
-                                <option value={10}>10</option>
-                                <option value={20}>20</option>
-                                <option value={30}>30</option>
-                                <option value={50}>50</option>
-                            </select>
-                        </div>
-                        <div className="d-flex justify-content-center my-3 input-group input-group-sm px-4">
-                            <label htmlFor="color" className="form-label px-4">
-                                Line Color
-                            </label>
-                            <input
-                                id="color"
-                                type="color"
-                                name="color"
-                                className="form-control form-control-color px-4"
-                                onChange={handleColorPickChange}
-                            ></input>
+    const renderContent = () => {
+        if (isMobile) {
+            return (
+                <div>
+                    Sorry! This content is not available on mobile devices.
+                </div>
+            );
+        }
+        return (
+            <>
+                <div className="container" style={{ width: boxes.width }}>
+                    <div className="row shadow-md p-3 mb-5 bg-body-edited rounded box-color">
+                        <div className="col-lg-12 col-md-12 col-sm-12">
+                            <div className="d-flex justify-content-center my-3 input-group input-group-sm">
+                                <label
+                                    htmlFor="lineStyle"
+                                    className="form-label px-4"
+                                >
+                                    Line Style
+                                </label>
+                                <select
+                                    name="lineStyle"
+                                    id="lineStyle"
+                                    value={lineState.lineStyle}
+                                    className="form-select"
+                                    onChange={handleLineChange}
+                                >
+                                    <option value="square">Square</option>
+                                    <option value="round">Round</option>
+                                </select>
+                            </div>
+                            <div className="d-flex justify-content-center input-group input-group-sm my-3 px-4">
+                                <label
+                                    htmlFor="lineWidth"
+                                    className="form-label px-4"
+                                >
+                                    Line Width
+                                </label>
+                                <select
+                                    name="lineWidth"
+                                    id="lineWidth"
+                                    value={lineState.lineWidth}
+                                    className="form-select"
+                                    onChange={handleLineChange}
+                                >
+                                    <option value={5}>5</option>
+                                    <option value={10}>10</option>
+                                    <option value={20}>20</option>
+                                    <option value={30}>30</option>
+                                    <option value={50}>50</option>
+                                </select>
+                            </div>
+                            <div className="d-flex justify-content-center my-3 input-group input-group-sm px-4">
+                                <label
+                                    htmlFor="color"
+                                    className="form-label px-4"
+                                >
+                                    Line Color
+                                </label>
+                                <input
+                                    id="color"
+                                    type="color"
+                                    name="color"
+                                    className="form-control form-control-color px-4"
+                                    onChange={handleColorPickChange}
+                                ></input>
+                            </div>
                         </div>
                     </div>
+                    <div className="container">
+                        <Box
+                            canvasRef={canvasRef}
+                            onMouseDown={startDraw}
+                            onMouseUp={endDraw}
+                            onMouseMove={draw}
+                            width={boxes.width}
+                            height={boxes.height}
+                        />
+                    </div>
                 </div>
-                <div className="container">
-                    <Box
-                        canvasRef={canvasRef}
-                        onMouseDown={startDraw}
-                        onMouseUp={endDraw}
-                        onMouseMove={draw}
-                        width={boxes.width}
-                        height={boxes.height}
-                    />
+                <div className=" container d-flex justify-content-center my-3">
+                    <button className="btn me-1" onClick={handleSaveData}>
+                        <i className="far fa-save"> Save</i>
+                    </button>
+                    <button className="btn" onClick={clearCanvas}>
+                        <i className="far fa-trash-alt"> clear</i>
+                    </button>
                 </div>
-            </div>
-            <div className=" container d-flex justify-content-center my-3">
-                <button className="btn me-1" onClick={handleSaveData}>
-                    <i className="far fa-save"> Save</i>
-                </button>
-                <button className="btn" onClick={clearCanvas}>
-                    <i className="far fa-trash-alt"> clear</i>
-                </button>
-            </div>
-        </>
-    );
+            </>
+        );
+    };
+
+    return renderContent();
 };
 
 export default CreatePage;
