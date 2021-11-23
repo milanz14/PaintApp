@@ -16,7 +16,7 @@ const LandingPage = () => {
         },
         {
             name: 'Matthew Landen',
-            bio: "Passionate full-stack developer based in Los Angeles. Matt has nearly a decade of sales and management experience in a wide arrange of industries, including creating his own tech startup known as MechFinder in 2016. Most recently he's managed $100,000+ LED lighting projects for some of the largest car dealerships in Southern California. He's spent all of his free time over the last 2+ years coding in hopes of making a long-term career transition back into the tech space. This includes completing an intensive, 9-month Software Engineering Bootcampe through Springboard in 2021!",
+            bio: "Passionate full-stack developer based in Los Angeles. Matt has nearly a decade of sales and management experience in a wide arrange of industries, including creating his own tech startup known as MechFinder between 2015-2017. Most recently he's managed $100,000+ LED lighting projects for some of the largest car dealerships in Southern California. He's spent all of his free time over the last 2+ years coding in hopes of making a long-term career transition back into the tech space. This includes completing an intensive, 9-month Software Engineering Bootcampe through Springboard in 2021!",
             linkedIn: 'https://www.linkedin.com/in/landen1221/',
             github: 'https://github.com/landen1221',
             portfolio: 'https://landen1221.github.io/personal-portfolio/',
@@ -26,60 +26,57 @@ const LandingPage = () => {
 
     return (
         <>
-            <div className="container LandingPage">
-                <h1 className="header">
-                    Paintrest:{' '}
-                    <span className="not-bold">
-                        Where artists express inspiration
-                    </span>
-                </h1>
+            <div className="container">
+                <div className="jumbotron">
+                    <p className="h2 my-4">
+                        <strong>Paintrest</strong>: Where artists express
+                        inspiration
+                    </p>
+                </div>
 
                 <div className="row mx-auto">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
+                    <div className="col-lg-1 col-md-1"></div>
+                    <div className="col-lg-10 col-md-10 col-sm-12">
                         <br />
                         <img
-                            className="card-img-top app-picture"
+                            className="card-img-top"
                             src={laptopSS}
-                            alt="screen shot of app main page"
+                            alt="screen shot of app create page"
                         ></img>
                     </div>
+                    <div className="col-lg-1 col-md-1"></div>
                 </div>
                 <div className="my-4">
                     <br />
-                    <p className="overview">
+                    <p className="h2">
                         Show off your modern masterpiece by creating the
                         painting of your dreams and sharing it for all the world
                         to see.
                     </p>
                 </div>
-                <div id="get-started">
-                    <p className="sign-up">
-                        <b>Sign Up for free today!</b>
-                    </p>
-                    <hr />
+                <div className="container">
+                    <br />
+                    <h4>
+                        <strong>Ready to get started?</strong>
+                    </h4>
                     <a
-                        className="btn btn-md me-1 my-1"
+                        className="btn btn-md me-1 my-4"
                         href="/register"
                         role="button"
                     >
                         <i className="fas fa-user-plus"> Register</i>
                     </a>
-                    <a
-                        className="btn btn-md"
-                        id="login"
-                        href="/login"
-                        role="button"
-                    >
+                    <a className="btn btn-md" href="/login" role="button">
                         <i className="fas fa-sign-in-alt"> Login</i>
                     </a>
                 </div>
             </div>
             <br />
-            <div className="container developers">
-                <h2>MEET THE DEVELOPERS</h2>
+            <div className="container">
+                <h2 className="my-5">MEET THE DEVELOPERS</h2>
                 <div className="container card-radius">
-                    <div className="row g-3">
-                        <div className="col-lg-5 col-md-12 d-flex align-items-stretch">
+                    <div className="row g-1">
+                        <div className="col-lg-6 col-md-12 d-flex align-items-stretch">
                             <div className="card shadow p-3 mb-5 bg-body rounded card-radius">
                                 <img
                                     src={devInfo[0].img}
@@ -88,7 +85,9 @@ const LandingPage = () => {
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">
-                                        {devInfo[0].name.toUpperCase()}
+                                        <strong>
+                                            {devInfo[0].name.toUpperCase()}
+                                        </strong>
                                     </h5>
                                     <p className="card-text text-start">
                                         {devInfo[0].bio}
@@ -120,20 +119,19 @@ const LandingPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-2 col-md-12"></div>
-                        <div
-                            className="col-lg-5 col-md-12 d-flex align-items-stretch"
-                            id="matt"
-                        >
+                        <div className="col-lg-6 col-md-12 d-flex align-items-stretch">
                             <div className="card shadow p-3 mb-5 bg-body rounded card-radius">
                                 <img
                                     src={devInfo[1].img}
                                     className="card-img-top-card"
-                                    alt="matthew profile pic"
+                                    alt="matt profile pic"
                                 />
                                 <div className="card-body">
                                     <h5 className="card-title">
-                                        {devInfo[1].name.toUpperCase()}
+                                        <strong>
+                                            {' '}
+                                            {devInfo[1].name.toUpperCase()}
+                                        </strong>
                                     </h5>
                                     <p className="card-text text-start">
                                         {devInfo[1].bio}

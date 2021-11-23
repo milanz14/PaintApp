@@ -4,12 +4,16 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    height: 2.5rem;
+    height: 3.5rem;
 }
 
 .footer .footer-text {
     display: block;
     text-align: center;
     /* margin-left: 50px; */
-    font-size: 0.8em;
+    padding-top: 5px;
+    font-size: 1em;
+}
+.footer i {
+    font-size: 1.1em;
 }

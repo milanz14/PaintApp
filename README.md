@@ -1,14 +1,16 @@
 # Paintrest
 
-**Purpose:** This project was created for a MintBeam hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
+**Purpose:** This project was created for a MintBean hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
 
-**Summary:** Paintrest is a platform that allows users to create and save thier artwork to share with the world! 
+**Summary:** Paintrest is a platform that allows users to create and save thier artwork to share with the world!
 
 ## Reference Links
 
--   Developers: https://github.com/milanz14 & https://github.com/landen1221
+-   Matthew Landen (Developer): [Github] (https://github.com/landen1221) [Portfolio] (https://www.mattlanden.com/)
+-   Milan Zagorac (Developer): [Github] https://github.com/milanz14 [Portfolio] (https://www.milanz.dev/)
+
 -   API & Database Schema: https://github.com/milanz14/Paintrest-backend
--   Live site: https://milanz14.github.io/Paintrest
+-   Live site: https://paintrest.surge.sh/
 
 ## Technology Utilized
 
@@ -33,15 +35,12 @@ Install required packages<br>
 Your project should be up and running, with a homescreen as seen below:
 <img src="_/../_images/landing.png">
 
-### Paintrest is a web app that allows users to paint on a canvas and upload their creations to their profile.
+The app create screen allows users to paint on a canvas and upload their creations to their profile.
 <img src="_/images/../../_images/create.png" >
 
-### Users can view the gallery of recent posts and view other users' posts.
-<p>User Gallery</P>
-<img src="_/../_images/showroom.png">
-<p>The Art Show</P>
+Users are also able to see the gallery of beautiful creations submitted by others.
 <img src="_/../_images/gallery.png">
 
-### The Front end of this is built with React with some FontAwesome and Bootstrap for styling.
+The Front end of this is built with React with some FontAwesome and Bootstrap for styling.
 
-### To use this locally, fork the repository and start up your local server with `npm start`. The server will open on `localhost:3000`. If you have any creative ideas, submit a pull request for review explaining what the change is and what you think it would benefit the project.
+If you have any creative ideas, submit a pull request for review explaining what the change is and what you think it would benefit the project.

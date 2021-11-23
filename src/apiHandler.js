@@ -4,6 +4,7 @@ import links from './config';
 const BASE_API_URL = process.env.REACT_APP_BASE_URL || links.REACT_APP_BASE_URL;
 
 class PaintrestAPI {
+    // Retrieves initial posts on gallery render
     static async getImages(numImages, method = 'get') {
         const url = `${BASE_API_URL}/posts/count/${numImages}`;
         try {
@@ -76,6 +77,20 @@ class PaintrestAPI {
             const userInfo = await axios({ url, method });
             console.log(userInfo.data);
             return userInfo.data.userPosts.posts;
+        } catch (err) {
+            console.error('API Error:', err.response);
+            let message = err.response.data.error.message;
+            throw Array.isArray(message) ? message : [message];
+        }
+    }
+
+    // used to get additional posts for Infinit Scroll
+    static async getNextBatch(numPosts, currLastId, method = 'get') {
+        const url = `${BASE_API_URL}/posts/next/${numPosts}/${currLastId}`;
+        try {
+            const nextBatch = await axios({ url, method });
+            console.log(nextBatch.data);
+            return nextBatch.data;
         } catch (err) {
             console.error('API Error:', err.response);
             let message = err.response.data.error.message;
