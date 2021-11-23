@@ -30,7 +30,7 @@
     text-align: center;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 769px) {
     .navbar-nav > li {
         border: none;
         text-align: left;
@@ -43,9 +43,9 @@
     }
 }
 
-@media (min-width: 771px) {
+@media (min-width: 770px) {
     .navbar {
-        height: 1em;
+        height: 3em;
     }
 
     .navbar-nav {
