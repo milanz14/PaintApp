@@ -38,6 +38,9 @@ Your project should be up and running, with a homescreen as seen below:
 The app create screen allows users to paint on a canvas and upload their creations to their profile.
 <img src="_/images/../../_images/create.png" >
 
+Users are also able to see the gallery of beautiful creations submitted by others.
+<img src="_/../_images/gallery.png">
+
 The Front end of this is built with React with some FontAwesome and Bootstrap for styling.
 
 If you have any creative ideas, submit a pull request for review explaining what the change is and what you think it would benefit the project.
