@@ -18,26 +18,31 @@ React (Router, FontAwesome, Bootstrap, Axios), Express, BCRYPT, JSON Web Tokens,
 
 ## Run Locally
 
-Assure API is up and running (Found here: https://github.com/milanz14/Paintrest-backend)
+Assure API is up and running locally to utilize full functionality
 
-Clone repository and enter directory of repo:
+-   Find those steps here: https://github.com/milanz14/Paintrest-backend
 
+Clone repository and enter directory of repo:<br>
 `git clone https://github.com/milanz14/Paintrest`
 
 `cd Paintrest`
 
-Install npm packages<br>
+Initialize npm package & install required libraries:<br>
 `npm init -y`
-
-Install required packages<br>
 `npm install`
+
+Set environment variable to call API:<br>
+`REACT_APP_BASE_URL = 'http://localhost:3001'`
+
+Run the app:<br>
+`npm start`
 
 Your project should be up and running, with a homescreen as seen below:
 <img src="_/../_images/landing.png">
 
 ## Additional Screenshots
 
-The app create screen allows users to paint on a canvas and upload their creations to their profile.
+The create route allows users to paint on a canvas and upload their creations to their profile.
 
 <img src="_/images/../../_images/create.png" >
 
