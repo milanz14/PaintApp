@@ -1,6 +1,6 @@
 # Paintrest
 
-**Purpose:** This project was created for a MintBeam hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
+**Purpose:** This project was created for a MintBean hackathon competition. Contestants were given 1-week to create an application that allowed for users to draw on a canvas. Then it was up to us to take that idea and make something with it. -- Enjoy!
 
 **Summary:** Paintrest is a platform that allows users to create and save thier artwork to share with the world!
 
@@ -37,6 +37,9 @@ Your project should be up and running, with a homescreen as seen below:
 
 The app create screen allows users to paint on a canvas and upload their creations to their profile.
 <img src="_/images/../../_images/create.png" >
+
+Users are also able to see the gallery of beautiful creations submitted by others.
+<img src="_/../_images/gallery.png">
 
 The Front end of this is built with React with some FontAwesome and Bootstrap for styling.
 

@@ -29,11 +29,9 @@
     margin-right: auto;
 }
 
-/* .navbar-nav > li {
-    width: 40%;
+.navbar-nav > li {
+    width: 50%;
+    border: 1px solid #f2e9e4;
+    border-width: 0 1px;
+    text-align: center;
 }
-
-.navbar-nav > li + li {
-    border-left: #f2e9e4 solid 1px;
-    padding-left: 1.5em;
-} */
