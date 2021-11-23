@@ -6,8 +6,8 @@
 
 ## Reference Links
 
--   Matthew Landen (Developer): [Github] (https://github.com/landen1221) [Portfolio] (https://www.mattlanden.com/)
--   Milan Zagorac (Developer): [Github] https://github.com/milanz14 [Portfolio] (https://www.milanz.dev/)
+-   Matthew Landen (Developer): [Github](https://github.com/landen1221) -- [Portfolio](https://www.mattlanden.com/)
+-   Milan Zagorac (Developer): [Github](https://github.com/milanz14) -- [Portfolio](https://www.milanz.dev/)
 
 -   API & Database Schema: https://github.com/milanz14/Paintrest-backend
 -   Live site: https://paintrest.surge.sh/
@@ -35,12 +35,16 @@ Install required packages<br>
 Your project should be up and running, with a homescreen as seen below:
 <img src="_/../_images/landing.png">
 
+## Additional Screenshots
+
 The app create screen allows users to paint on a canvas and upload their creations to their profile.
+
 <img src="_/images/../../_images/create.png" >
 
 Users are also able to see the gallery of beautiful creations submitted by others.
+
 <img src="_/../_images/gallery.png">
 
-The Front end of this is built with React with some FontAwesome and Bootstrap for styling.
+## Additional Comments
 
 If you have any creative ideas, submit a pull request for review explaining what the change is and what you think it would benefit the project.
