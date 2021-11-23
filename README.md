@@ -9,8 +9,9 @@
 -   Matthew Landen (Developer): [Github](https://github.com/landen1221) -- [Portfolio](https://www.mattlanden.com/)
 -   Milan Zagorac (Developer): [Github](https://github.com/milanz14) -- [Portfolio](https://www.milanz.dev/)
 
--   API & Database Schema: https://github.com/milanz14/Paintrest-backend
 -   Live site: https://paintrest.surge.sh/
+-   Video Walkthrough: https://youtu.be/An6BQbhSCnw
+-   API & Database Schema: https://github.com/milanz14/Paintrest-backend
 
 ## Technology Utilized
 
