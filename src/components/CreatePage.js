@@ -18,7 +18,7 @@ const CreatePage = () => {
     };
 
     const LINE_STATE = {
-        lineStyle: "",
+        lineStyle: "round",
         lineWidth: undefined,
     };
 
@@ -105,6 +105,14 @@ const CreatePage = () => {
         context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
+    const setEraser = () => {
+        setLineState({
+            lineStyle: LINE_STATE.lineStyle,
+            lineWidth: 15,
+        });
+        setColor("#fff");
+    };
+
     const renderContent = () => {
         if (isMobile) {
             return (
@@ -132,8 +140,8 @@ const CreatePage = () => {
                                     className="form-select"
                                     onChange={handleLineChange}
                                 >
-                                    <option value="square">Square</option>
                                     <option value="round">Round</option>
+                                    <option value="butt">Square</option>
                                 </select>
                             </div>
                             <div className="d-flex justify-content-center input-group input-group-sm my-3 px-4">
@@ -189,7 +197,10 @@ const CreatePage = () => {
                     <button className="btn me-1" onClick={handleSaveData}>
                         <i className="far fa-save"> Save</i>
                     </button>
-                    <button className="btn" onClick={clearCanvas}>
+                    <button className="btn me-1" onClick={setEraser}>
+                        <i className="fas fa-eraser"> Erase</i>
+                    </button>
+                    <button className="btn me-1" onClick={clearCanvas}>
                         <i className="far fa-trash-alt"> clear</i>
                     </button>
                 </div>
