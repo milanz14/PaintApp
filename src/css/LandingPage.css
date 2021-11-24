@@ -14,3 +14,7 @@
     border-radius: 16px;
     margin-top: 20px;
 }
+
+ul {
+    columns: 2;
+}
