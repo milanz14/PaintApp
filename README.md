@@ -19,7 +19,7 @@ React (Router, FontAwesome, Bootstrap, Axios), Express, BCRYPT, JSON Web Tokens,
 
 ## Run Locally
 
-Assure API is up and running locally to utilize full functionality
+Ensure API is up and running locally to utilize full functionality
 
 -   Find those steps here: https://github.com/milanz14/Paintrest-backend
 
