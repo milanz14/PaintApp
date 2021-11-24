@@ -39,7 +39,7 @@ const Gallery = () => {
         }
 
         // Timeout is simply to make it obvious Infinite Scroll was added
-        nextBatch();
+        setTimeout(nextBatch, 500);
     };
 
     return (
