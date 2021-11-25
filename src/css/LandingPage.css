@@ -4,6 +4,10 @@
     border-radius: 16px;
 }
 
+#about-title {
+    padding-top: 1.5rem;
+}
+
 .size-window {
     width: 50%;
     height: 50%;
@@ -22,7 +26,7 @@
 }
 
 .developers {
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 #gif {
@@ -53,12 +57,15 @@
     height: 85%;
 }
 #tech-container {
-    margin-bottom: 1rem;
     padding: 0;
 }
 
 #tech-container img {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
+}
+
+#tech-container p {
+    font-size: 1.25rem;
 }
 
 #smaller-font {

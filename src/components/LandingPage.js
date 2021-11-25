@@ -93,15 +93,16 @@ const LandingPage = () => {
             </div>
             <br />
             <br />
+            <br />
 
             {/* START OF ABOUT THE APP */}
             <div className="container card-radius">
                 <div className="row g-1">
                     <div className="col-lg-8 col-md-8 d-flex align-items-stretch mx-auto">
                         <div className="card shadow p-3 mb-5 bg-body rounded card-radius">
-                            <h5 className="card-title">
+                            <h4 className="card-title" id="about-title">
                                 <strong>ABOUT THE APP</strong>
-                            </h5>
+                            </h4>
                             <div className="card-body">
                                 <p className="card-text about-details">
                                     Simply create an account, click 'Create',
@@ -118,7 +119,7 @@ const LandingPage = () => {
                             <hr />
                             <div className="card-body">
                                 <h5 className="card-title">
-                                    <strong>PRIMARY TECHNOLOGIES</strong>
+                                    <strong>PRIMARY TECHNOLOGIES:</strong>
                                 </h5>
 
                                 <div className="container" id="tech-container">
@@ -154,11 +155,13 @@ const LandingPage = () => {
                                         </div>
                                     </div>
                                 </div>
+
                                 <hr />
                                 <p className="card-text" id="smaller-font">
                                     *App utilizes many additional technologies
                                     such as BCRYPT, JSON Web Tokens, React
-                                    Router, Infinite Scrolling and more...
+                                    Router/Context, Axios, Infinite Scrolling,
+                                    Robust Error Handling, and more...
                                 </p>
                             </div>
                         </div>
