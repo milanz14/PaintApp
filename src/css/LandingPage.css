@@ -12,9 +12,116 @@
 
 .card-radius {
     border-radius: 16px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+}
+
+.LandingPage h2 {
+    font-weight: bolder;
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+
+.developers {
+    margin-top: 5rem;
+}
+
+#gif {
+    width: 80%;
+    max-width: 500px;
+    min-width: 300px;
+    border: 3px solid black;
+    border-radius: 16px;
+}
+
+.tech-logo {
+    width: 25%;
+}
+
+.gif-body {
+    padding: 10px;
+}
+
+.about p {
+    display: inline-block;
+    width: 85%;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.about {
+    margin-top: 3rem;
+    height: 85%;
+}
+#tech-container {
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+#tech-container img {
+    margin-top: 2rem;
+}
+
+#smaller-font {
+    font-size: 1rem;
+}
+
+@media (max-width: 775px) {
+    #tech-container img {
+        margin-top: 1rem;
+    }
+
+    #tech-container {
+        margin-bottom: 1rem;
+    }
+
+    #about p {
+        /* display: inline; */
+        font-size: 1rem;
+    }
+
+    .tech-logo {
+        width: 18%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .tech-card {
+        margin-top: 2rem;
+    }
+}
+
+#set-height {
+    height: inherit;
+    /* height: 100%; */
+    box-sizing: border-box;
+}
+
+.about-row {
+    height: 80%;
+    min-height: 455px;
+}
+
+.gif-image {
+    width: 85%;
+    max-width: 500px;
+    border: 1px solid black;
 }
 
 ul {
+    list-style-type: disc;
+    -webkit-columns: 2;
+    -moz-columns: 2;
     columns: 2;
+    list-style-position: inside;
+}
+
+ul li {
+    float: left;
+    width: 40%;
+}
+
+.about-details {
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* text-align: center; */
 }
